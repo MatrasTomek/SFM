@@ -187,6 +187,20 @@
         }
     }
 
+    .saveForm {
+        div {
+            display: flex;
+
+            p {
+                color: $text-second;
+            }
+
+            p:nth-child(2) {
+                margin-left: 20px;
+            }
+        }
+    }
+
     @media screen and (orientation: landscape) {}
 
     @media screen and (min-width: map-get($breakpoints, medium)) {}

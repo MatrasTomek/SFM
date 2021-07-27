@@ -10,14 +10,29 @@ import { COUNTRIES } from "../../../helpers/countires";
 import { Button, DeleteConfirmation } from "../../../components";
 import styles from "./info.module.scss";
 
-// const required = (value) => (value ? undefined : "Pole wymagane");
-
-const required = (value) => console.log("ok");
+const required = (value) => (value ? undefined : "Pole wymagane");
 
 const Info = () => {
   const dispatch = useDispatch();
   const subcontractor = useSelector((store) => store.subcontractor.data);
-  console.log(subcontractor);
+
+  const {
+    carrierName,
+    adress,
+    zip,
+    city,
+    vatNo,
+    phone,
+    mail,
+    contactP,
+    www,
+    additional,
+    fleetSize,
+    kindOf,
+    topDir1,
+    topDir2,
+    topDir3,
+  } = !subcontractor ? "" : subcontractor.subcontractor;
 
   const [isEdit, setIsEdit] = useState(false);
   const [isSave, setIsSave] = useState(false);
@@ -143,7 +158,7 @@ const Info = () => {
               <Field
                 name="carrierName"
                 validate={required}
-                //   initialValue={isEdit ? editData.invoice.dateOfIssue : null}
+                initialValue={isEdit ? carrierName : null}
               >
                 {({ input, meta }) => (
                   <div>
@@ -157,7 +172,7 @@ const Info = () => {
               <Field
                 name="adress"
                 validate={required}
-                //   initialValue={isEdit ? editData.invoice.dateOfIssue : null}
+                initialValue={isEdit ? adress : null}
               >
                 {({ input, meta }) => (
                   <div>
@@ -170,7 +185,7 @@ const Info = () => {
               <Field
                 name="zip"
                 validate={required}
-                //   initialValue={isEdit ? editData.invoice.dateOfIssue : null}
+                initialValue={isEdit ? zip : null}
               >
                 {({ input, meta }) => (
                   <div>
@@ -183,7 +198,7 @@ const Info = () => {
               <Field
                 name="city"
                 validate={required}
-                //   initialValue={isEdit ? editData.invoice.dateOfIssue : null}
+                initialValue={isEdit ? city : null}
               >
                 {({ input, meta }) => (
                   <div>
@@ -197,7 +212,7 @@ const Info = () => {
               <Field
                 name="vatNo"
                 validate={required}
-                //   initialValue={isEdit ? editData.invoice.dateOfIssue : null}
+                initialValue={isEdit ? vatNo : null}
               >
                 {({ input, meta }) => (
                   <div>
@@ -210,7 +225,7 @@ const Info = () => {
               <Field
                 name="phone"
                 validate={required}
-                //   initialValue={isEdit ? editData.invoice.dateOfIssue : null}
+                initialValue={isEdit ? phone : null}
                 parse={normalizePhone}
               >
                 {({ input, meta }) => (
@@ -224,7 +239,7 @@ const Info = () => {
               <Field
                 name="mail"
                 validate={required}
-                //   initialValue={isEdit ? editData.invoice.dateOfIssue : null}
+                initialValue={isEdit ? mail : null}
               >
                 {({ input, meta }) => (
                   <div>
@@ -234,11 +249,7 @@ const Info = () => {
                   </div>
                 )}
               </Field>
-              <Field
-                name="contactP"
-
-                //   initialValue={isEdit ? editData.invoice.dateOfIssue : null}
-              >
+              <Field name="contactP" initialValue={isEdit ? contactP : null}>
                 {({ input, meta }) => (
                   <div>
                     <label>Osoba kontaktowa</label>
@@ -247,11 +258,7 @@ const Info = () => {
                   </div>
                 )}
               </Field>
-              <Field
-                name="www"
-
-                //   initialValue={isEdit ? editData.invoice.dateOfIssue : null}
-              >
+              <Field name="www" initialValue={isEdit ? www : null}>
                 {({ input, meta }) => (
                   <div>
                     <label>www</label>
@@ -262,7 +269,7 @@ const Info = () => {
               </Field>
               <Field
                 name="additional"
-                //   initialValue={isEdit ? editData.invoice.dateOfIssue : null}
+                initialValue={isEdit ? additional : null}
               >
                 {({ input, meta }) => (
                   <div>
@@ -279,8 +286,8 @@ const Info = () => {
               </Field>
               <Field
                 name="fleetSize"
-                validate={required}
-                //   initialValue={isEdit ? editData.invoice.dateOfIssue : null}
+                kindOf
+                initialValue={isEdit ? fleetSize : null}
               >
                 {({ input, meta }) => (
                   <div>
@@ -297,6 +304,7 @@ const Info = () => {
                   component="input"
                   type="radio"
                   value="upTo3.5T"
+                  initialValue={isEdit ? kindOf : null}
                 />{" "}
                 do 3.5T
                 <Field
@@ -304,6 +312,7 @@ const Info = () => {
                   component="input"
                   type="radio"
                   value="over3.5T"
+                  initialValue={isEdit ? kindOf : null}
                 />{" "}
                 powyżej 3.5T
               </div>
@@ -313,7 +322,7 @@ const Info = () => {
                 <Field
                   name="topDir1"
                   validate={required}
-                  //   initialValue={isEdit ? editData.invoice.dateOfIssue : null}
+                  initialValue={isEdit ? topDir1 : null}
                 >
                   {({ input, meta }) => (
                     <div>
@@ -325,7 +334,7 @@ const Info = () => {
                 <Field
                   name="topDir2"
                   validate={required}
-                  //   initialValue={isEdit ? editData.invoice.dateOfIssue : null}
+                  initialValue={isEdit ? topDir2 : null}
                 >
                   {({ input, meta }) => (
                     <div>
@@ -337,7 +346,7 @@ const Info = () => {
                 <Field
                   name="topDir3"
                   validate={required}
-                  //   initialValue={isEdit ? editData.invoice.dateOfIssue : null}
+                  initialValue={isEdit ? topDir3 : null}
                 >
                   {({ input, meta }) => (
                     <div>
@@ -352,61 +361,61 @@ const Info = () => {
           )}
         />
       ) : (
-        <div className={styles.form}>
+        <div className={styles.saveForm}>
           <div>
-            <p>Nazwa Firmy</p>
-            <p></p>
+            <p>Nazwa Firmy:</p>
+            <p>{carrierName}</p>
           </div>
           <div>
-            <p>Adres</p>
-            <p></p>
+            <p>Adres:</p>
+            <p>{adress}</p>
           </div>
           <div>
-            <p>Kod pocztowy</p>
-            <p></p>
+            <p>Kod pocztowy:</p>
+            <p>{zip}</p>
           </div>
           <div>
-            <p>Miasto</p>
-            <p></p>
+            <p>Miasto:</p>
+            <p>{city}</p>
           </div>
           <div>
-            <p>Nip</p>
-            <p></p>
+            <p>Nip:</p>
+            <p>{vatNo}</p>
           </div>
           <div>
-            <p>Telefon</p>
-            <p></p>
+            <p>Telefon:</p>
+            <p>{phone}</p>
           </div>
           <div>
-            <p>Mail</p>
-            <p></p>
+            <p>Mail:</p>
+            <p>{mail}</p>
           </div>
           <div>
-            <p>Osoba kontaktowa</p>
-            <p></p>
+            <p>Osoba kontaktowa:</p>
+            <p>{contactP}</p>
           </div>
           <div>
-            <p>www</p>
-            <p></p>
+            <p>www:</p>
+            <p>{www}</p>
           </div>
           <div>
-            <p>Informacje dodatkowe</p>
-            <p></p>
+            <p>Informacje dodatkowe:</p>
+            <p>{additional}</p>
           </div>
           <div>
-            <p>Ilosć pojazdów</p>
-            <p></p>
+            <p>Ilosć pojazdów:</p>
+            <p>{fleetSize}</p>
           </div>
           <div className={styles.kinfOfTransport}>
-            <p>Rodzaj transportu</p>
-            <p></p>
+            <p>Rodzaj transportu:</p>
+            <p>{kindOf}</p>
           </div>
           <div className={styles.topDirections}>
-            <p>Główne kierunki</p>
+            <p>Główne kierunki:</p>
             <div>
-              <p></p>
-              <p></p>
-              <p></p>
+              <p>{topDir1}</p>
+              <p>{topDir2}</p>
+              <p>{topDir3}</p>
             </div>
           </div>
           <div className={styles.buttons}>{buttonsViev}</div>
