@@ -1,0 +1,87 @@
+@import "../../StylesRoot/common.scss";
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 100px);
+    background-color: $background;
+
+    .inside {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60%;
+        height: 50%;
+        background-color: $box;
+        border: 2px solid $text-first;
+        border-radius: $radius;
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            div {
+                input {
+                    @include smallInput;
+                }
+            }
+
+            .buttons {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20px;
+
+                button:nth-child(1) {
+                    @include darkButton;
+                    @include smallButton;
+                    margin-bottom: 10px;
+                }
+
+                button:nth-child(2) {
+                    @include backButton;
+                    @include smallButton;
+                }
+            }
+        }
+    }
+
+    @media screen and (orientation:landscape) {
+        .inside {
+            width: 95%;
+            height: 80%;
+
+            .form {
+                flex-direction: row;
+                flex-wrap: wrap;
+
+                div {
+                    flex-basis: 30%;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: map-get($breakpoints, medium)) {
+        .inside {
+            width: 40%;
+            height: 60%;
+
+            .form {
+                flex-direction: column;
+            }
+        }
+    }
+
+    @media screen and (min-width: map-get($breakpoints, large)) {
+        .inside {
+            width: 30%;
+            height: 60%;
+        }
+    }
+}

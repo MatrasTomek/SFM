@@ -1,0 +1,29 @@
+@import "../../StylesRoot/common.scss";
+
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: $header;
+    background-color: $background;
+    color: $text-first;
+    border-bottom: 2px solid $text-first;
+    z-index: 2;
+
+    .info {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-basis: 40%;
+
+    }
+
+    button {
+        @include lightButton;
+        @include smallButton;
+    }
+}

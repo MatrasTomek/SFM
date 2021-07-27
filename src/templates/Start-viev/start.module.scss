@@ -1,0 +1,21 @@
+@import "../../StylesRoot/common.scss";
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: $background;
+
+
+    .info {
+        width: 90%;
+        margin: 0 auto 0 auto;
+        color: white;
+
+        p {
+            padding-top: 100px;
+            ;
+        }
+    }
+
+}
