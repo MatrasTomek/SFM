@@ -1,0 +1,23 @@
+$background: rgb(20, 20, 20);
+$box: rgb(59, 59, 59);
+$text-first: rgb(216, 145, 2);
+$text-second: #fff;
+$worning: #e03202;
+$isDone: #49b800;
+
+$xs-fz: 14px;
+$s-fz: 16px;
+$m-fz: 18px;
+$l-fz: 20px;
+$x-fz: 24px;
+$xl-fz: 28px;
+
+$header: 100px;
+$radius: 3px;
+
+$breakpoints: (x-small: 480px,
+  small: 640px,
+  medium: 800px,
+  large: 1020px,
+  x-large: 1280px,
+);

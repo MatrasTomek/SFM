@@ -1,0 +1,108 @@
+@import "./variables.scss";
+
+@mixin darkButton {
+    background-color: $background;
+    color: $text-first;
+    border: none;
+    border: 1px solid $text-first;
+    border-radius: $radius;
+    cursor: pointer;
+    transition: 0.35s;
+
+    &:hover {
+        background-color: $text-first;
+        color: $background
+    }
+}
+
+@mixin lightButton {
+    background-color: $box;
+    color: $text-first;
+    border: none;
+    border: 1px solid $text-first;
+    border-radius: $radius;
+    cursor: pointer;
+    transition: 0.35s;
+
+    &:hover {
+        background-color: $text-first;
+        color: $background
+    }
+}
+
+@mixin backButton {
+    background-color: $background;
+    color: $worning;
+    border: 1px solid $worning;
+    border-radius: $radius;
+    cursor: pointer;
+    transition: 0.35s;
+
+    &:hover {
+        background-color: $worning;
+        color: $background
+    }
+}
+
+@mixin smallButton {
+    width: 140px;
+    padding: 5px 10px;
+    font-size: $xs-fz;
+    cursor: pointer;
+
+    @media screen and (min-width:map-get($breakpoints, medium)) {
+        font-size: $s-fz;
+    }
+
+    @media screen and (min-width:map-get($breakpoints, large)) {
+        font-size: $s-fz;
+    }
+}
+
+@mixin smallInput {
+    margin-bottom: 15px;
+    padding: 5px 10px;
+    background-color: $box;
+    border: none;
+    border-bottom: 2px solid $text-first;
+    color: $text-second;
+    font-size: $xs-fz;
+
+    @media screen and (min-width:map-get($breakpoints, medium)) {
+        font-size: $s-fz;
+    }
+
+    @media screen and (min-width:map-get($breakpoints, large)) {
+        font-size: $m-fz;
+    }
+}
+
+@mixin selectInput {
+    margin: 10 auto;
+    padding: 5px 10px;
+    background-color: $box;
+    border: none;
+    color: $text-second;
+    font-size: $xs-fz;
+
+    @media screen and (min-width:map-get($breakpoints, medium)) {
+        font-size: $s-fz;
+    }
+
+    @media screen and (min-width:map-get($breakpoints, large)) {
+        font-size: $m-fz;
+    }
+}
+
+@mixin labelItem {
+    color: $text-second;
+    font-size: $xs-fz;
+
+    @media screen and (min-width:map-get($breakpoints, medium)) {
+        font-size: $s-fz;
+    }
+
+    @media screen and (min-width:map-get($breakpoints, large)) {
+        font-size: $m-fz;
+    }
+}
