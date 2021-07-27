@@ -1,0 +1,34 @@
+@import "../../StylesRoot/common.scss";
+
+.modal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  backdrop-filter: blur(2px);
+
+  .wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    z-index: 20;
+    border: none;
+    border: 2px solid $text-first;
+    background-color: $box;
+    color: $text-second;
+    border-radius: $radius;
+
+    @media screen and (orientation: landscape) {
+      padding: 30px;
+    }
+  }
+}
+
+.disabled {
+  display: none;
+}

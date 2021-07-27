@@ -1,0 +1,98 @@
+@import "../../StylesRoot/common.scss";
+
+.wrapper {
+
+    position: fixed;
+    top: 30%;
+    left: 0;
+    width: 180px;
+    height: 300px;
+    background-color: $box;
+    border: 2px solid $text-first;
+    border-radius: $radius;
+    z-index: 2;
+    transition: 0.4s;
+
+    .tap {
+        position: absolute;
+        bottom: 10px;
+        left: 176px;
+        width: 30px;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $box;
+        border: 2px solid $text-first;
+        border-left: none;
+        border-top-right-radius: 100px;
+        border-bottom-right-radius: 100px;
+        cursor: pointer;
+        z-index: 1;
+
+        svg {
+            transition: 0.4s;
+        }
+
+        &:hover svg {
+            fill: white;
+        }
+    }
+
+    .asideMenu {
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+
+        nav {
+            ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                a {
+                    margin: 18px 0;
+                    color: $text-first;
+                    text-decoration: none;
+                    font-size: $xs-fz;
+                    transition: 0.4s;
+
+                    &:hover {
+                        color: $text-second;
+                    }
+                }
+            }
+        }
+
+    }
+
+    @media screen and (orientation:landscape) {
+        height: 240px;
+
+        .asideMenu {
+            nav {
+                ul {
+                    a {
+                        margin: 10px 0;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: map-get($breakpoints, medium)) {
+        height: 350px;
+
+        .asideMenu {
+            nav {
+                ul {
+                    a {
+                        margin: 20px 0;
+                        font-size: $s-fz;
+                    }
+                }
+            }
+        }
+    }
+}
