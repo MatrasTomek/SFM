@@ -1,0 +1,193 @@
+@import "../../../StylesRoot/common.scss";
+
+.wrapper {
+
+    .form {
+        display: flex;
+        flex-wrap: wrap;
+
+        div {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+
+
+            p {
+                width: 100%;
+                text-align: center;
+                margin: 20px auto 10px auto;
+                color: $text-second;
+            }
+
+            label {
+                @include labelItem;
+                width: 20%;
+            }
+
+            input {
+                @include selectInput;
+                width: 80%;
+            }
+
+
+
+            textarea {
+                width: 80%;
+                padding: 10px;
+                margin: 10px auto;
+                border: 1px solid $text-first;
+                border-radius: $radius;
+                background-color: $box;
+            }
+
+            span {
+                width: 100%;
+                color: $worning;
+                text-align: center;
+            }
+
+            select {
+                option {}
+            }
+        }
+
+        div:nth-child(1) {
+            width: 100%
+        }
+
+        div:nth-child(2) {
+            width: 100%
+        }
+
+        div:nth-child(3) {
+            width: 50%;
+
+            label,
+            input {
+                width: 100%;
+            }
+
+
+        }
+
+        div:nth-child(4) {
+            width: 50%;
+
+            label,
+            input {
+                width: 100%;
+            }
+        }
+
+        div:nth-child(5) {
+            width: 50%;
+
+            label,
+            input {
+                width: 100%;
+            }
+        }
+
+        div:nth-child(6) {
+            width: 50%;
+
+            label,
+            input {
+                width: 100%;
+            }
+        }
+
+        div:nth-child(10) {
+
+            align-items: center;
+            justify-content: center;
+        }
+
+        div:nth-child(11) {
+
+            justify-content: center;
+            align-items: center;
+
+            p {
+                width: 45%
+            }
+
+            input {
+                width: 35%;
+            }
+        }
+
+        div:nth-child(12) {
+            justify-content: space-around;
+            align-items: center;
+
+            color: $text-second;
+
+            input {
+                width: 10%;
+
+
+            }
+        }
+
+        div:nth-child(13) {
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+
+
+            p {
+                width: 100%;
+            }
+
+            div {
+                display: flex;
+                justify-content: center;
+                width: 30%;
+
+                select {
+                    background-color: $box;
+                    border: 1px solid $text-first;
+                    border-radius: $radius;
+
+                    option {
+                        color: $text-first;
+                    }
+                }
+            }
+        }
+    }
+
+    .buttons {
+        width: 100%;
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+
+        button {
+            flex-basis: 70%;
+            @include lightButton;
+            @include smallButton;
+        }
+
+        div {
+            width: 100%;
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+
+            button {
+                margin-bottom: 15px;
+            }
+        }
+    }
+
+    @media screen and (orientation: landscape) {}
+
+    @media screen and (min-width: map-get($breakpoints, medium)) {}
+}
