@@ -6,6 +6,7 @@ export const GET_SUBC = "GET_SUBC";
 export const EDIT_SUBC = "EDIT_SUBC";
 export const DEL_SUBC = "DEL_SUBC";
 export const CLEAR_SUB = "CLEAR_SUB";
+export const FLEET_ACTIONS = "FLEET_ACTIONS";
 
 export const addSubcontractor = (subcontractorData) => async (dispatch) => {
   dispatch(addSpinner());
@@ -62,3 +63,18 @@ export const deleteSubcontractor = (id) => async (dispatch) => {
 export const clearSubcontarctor = () => ({
   type: CLEAR_SUB,
 });
+
+export const allFleetActions = (fleetData) => async (dispatch) => {
+  dispatch(addSpinner());
+  const { data, status } = await request.put("/fleet", fleetData);
+  if (status === 202) {
+    dispatch(removeSpinner());
+    dispatch({
+      type: FLEET_ACTIONS,
+      payload: data,
+    });
+  } else {
+    dispatch(removeSpinner());
+    dispatch(timeoutShowTask(data.message));
+  }
+};
