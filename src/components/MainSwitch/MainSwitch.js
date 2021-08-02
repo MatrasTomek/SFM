@@ -1,6 +1,11 @@
 import { useSelector } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { AddSubcontractor, MainSection, CreateAccount } from "../../templates";
+import {
+  AddSubcontractor,
+  FindSubcontractor,
+  MainSection,
+  CreateAccount,
+} from "../../templates";
 
 const MainSwitch = () => {
   const cookie = useSelector((store) => store.cookie[0]);
@@ -16,6 +21,15 @@ const MainSwitch = () => {
             exact
             path="/add-subcontractor"
             render={() => <AddSubcontractor />}
+          />
+        ) : (
+          ""
+        )}
+        {user.length || cookie.isCookie ? (
+          <Route
+            exact
+            path="/find-subcontractor"
+            render={() => <FindSubcontractor />}
           />
         ) : (
           ""

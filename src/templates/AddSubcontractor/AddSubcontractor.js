@@ -4,7 +4,7 @@ import styles from "./addSubcontractor.module.scss";
 const AddSubcontractor = () => {
   return (
     <div className={styles.wrapper}>
-      <BoxItem />
+      <BoxItem isSave={false} isFound={false} />
       <AsideMenu />
     </div>
   );

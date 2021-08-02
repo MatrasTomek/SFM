@@ -1,0 +1,30 @@
+@import "../../StylesRoot/common.scss";
+
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    margin-top: $header;
+    padding: 20px;
+    background-color: $background;
+
+    .buttons {}
+
+    .info {
+        .infoItem {
+            display: flex;
+            width: 90%;
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid $text-first;
+            border-radius: $radius;
+            cursor: pointer;
+
+
+
+            p {
+                color: $text-second;
+
+            }
+        }
+    }
+}
