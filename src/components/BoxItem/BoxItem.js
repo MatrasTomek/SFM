@@ -1,19 +1,20 @@
 import { useState } from "react";
+
 import { Fleet, Info } from "../DataItems";
 import styles from "./boxItem.module.scss";
 
-const menuItems = [
-  { id: 1, name: "Dane", style: true },
-  { id: 2, name: "Flota", style: false },
-  { id: 3, name: "Ceny", style: false },
-  { id: 4, name: "Umowy", style: false },
-];
-
-const BoxItem = () => {
+const BoxItem = ({ isFound = false }) => {
   const [positionB1, setPositionB1] = useState(true);
   const [positionB2, setPositionB2] = useState(false);
   const [positionB3, setPositionB3] = useState(false);
   const [positionB4, setPositionB4] = useState(false);
+
+  const menuItems = [
+    { id: 1, name: "Dane", style: positionB1 },
+    { id: 2, name: "Flota", style: positionB2 },
+    { id: 3, name: "Ceny", style: positionB3 },
+    { id: 4, name: "Umowy", style: positionB4 },
+  ];
 
   const handleChangePosition = (e) => {
     const selectedId = e.target.id;
@@ -46,7 +47,7 @@ const BoxItem = () => {
       setPositionB4(true);
     }
   };
-
+  console.log(positionB1, positionB2);
   const menuItemsViev = menuItems.map((item) => {
     const { id, style, name } = item;
     return (
@@ -68,7 +69,7 @@ const BoxItem = () => {
         className={styles.box}
         style={{ left: `${positionB1 ? "50%" : "150%"}` }}
       >
-        <Info />
+        <Info found={isFound} />
       </div>
       <div
         className={styles.box}
