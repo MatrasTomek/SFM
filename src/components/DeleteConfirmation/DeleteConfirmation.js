@@ -1,5 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
-import { deleteSubcontractor } from "../../data/actions";
+import { useDispatch } from "react-redux";
+import { deleteSubcontractor, clearSubcontarctor } from "../../data/actions";
 import {} from "../../data/actions";
 
 import { Button, Modal } from "../../components";
@@ -17,6 +17,7 @@ const DeleteConfirmation = ({
 
   const handleOnDelete = () => {
     dispatch(deleteSubcontractor(id));
+    dispatch(clearSubcontarctor());
     setIsModalOpen(false);
     setIsSave(false);
     setIsEdit(false);

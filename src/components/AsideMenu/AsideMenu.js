@@ -1,9 +1,17 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { clearSubcontarctor } from "../../data/actions";
 import { Link } from "react-router-dom";
 import styles from "./asideMenu.module.scss";
 
 const AsideMenu = () => {
+  const dispatch = useDispatch();
+
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleClearState = () => {
+    dispatch(clearSubcontarctor());
+  };
 
   const handleOpenCloseMenu = () => {
     setIsOpen(!isOpen);
@@ -40,8 +48,12 @@ const AsideMenu = () => {
         <nav>
           <ul>
             <Link to="/">Start</Link>
-            <Link to="/add-subcontractor">Dodaj przewoźnika</Link>
-            <Link to="/">Znajdź przewoźnika</Link>
+            <Link to="/add-subcontractor" onClick={handleClearState}>
+              Dodaj przewoźnika
+            </Link>
+            <Link to="/find-subcontractor" onClick={handleClearState}>
+              Znajdź przewoźnika
+            </Link>
             <Link to="/">Statystyki</Link>
             <Link to="/">Kalendarz</Link>
           </ul>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Form, Field } from "react-final-form";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -10,9 +10,10 @@ import { COUNTRIES } from "../../../helpers/countires";
 import { Button, DeleteConfirmation } from "../../../components";
 import styles from "./info.module.scss";
 
-const required = (value) => (value ? undefined : "Pole wymagane");
+// const required = (value) => (value ? undefined : "Pole wymagane");
+const required = () => {};
 
-const Info = () => {
+const Info = ({ found }) => {
   const dispatch = useDispatch();
   const subcontractor = useSelector((store) => store.subcontractor.data);
 
@@ -32,12 +33,17 @@ const Info = () => {
     topDir1,
     topDir2,
     topDir3,
-  } = !subcontractor ? "" : subcontractor.subcontractor;
+  } = !subcontractor ? "" : subcontractor;
 
   const [isEdit, setIsEdit] = useState(false);
+  // const [isFound, setIsFound] = useState(found);
   const [isSave, setIsSave] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [deleteItem, setDeleteItem] = useState(false);
+
+  useEffect(() => {
+    setIsSave(!subcontractor ? false : true);
+  }, [subcontractor]);
 
   const countiresSelector = COUNTRIES.map((country) => (
     <option key={country.id}>{country.id}</option>
@@ -77,18 +83,53 @@ const Info = () => {
 
   const handleOnSubmit = (value) => {
     const allData = {
-      subcontractor: value,
-      fleet: [{}],
+      carrierName: value.carrierName,
+      adress: value.adress,
+      zip: value.zip,
+      city: value.city,
+      vatNo: value.vatNo,
+      phone: value.phone,
+      mail: value.mail,
+      contactP: value.contactP,
+      www: value.www,
+      additional: value.additional,
+      fleetSize: value.fleetSize,
+      kindOf: value.kindOf,
+      topDir1: value.topDir1,
+      topDir2: value.topDir2,
+      topDir3: value.topDir3,
+      isSaved: true,
+      fleet: [],
     };
 
     if (!isEdit) {
       dispatch(addSubcontractor(allData));
-      setIsSave(true);
+      // if (!subcontractor) {
+      //   setIsSave(false);
+      //   console.log(false);
+      // } else {
+      //   console.log(true);
+      // }
     } else {
       const _id = subcontractor._id;
       const newData = {
         _id,
-        subcontractor: value,
+        carrierName: value.carrierName,
+        adress: value.adress,
+        zip: value.zip,
+        city: value.city,
+        vatNo: value.vatNo,
+        phone: value.phone,
+        mail: value.mail,
+        contactP: value.contactP,
+        www: value.www,
+        additional: value.additional,
+        fleetSize: value.fleetSize,
+        kindOf: value.kindOf,
+        topDir1: value.topDir1,
+        topDir2: value.topDir2,
+        topDir3: value.topDir3,
+        isSaved: true,
         fleet: subcontractor.fleet,
       };
       dispatch(editSubcontractor(newData));
@@ -107,11 +148,15 @@ const Info = () => {
           name="edytuj przewoźnika"
           onClick={handleShowEditButtons}
         />
-        <Button
-          type="button"
-          name="dodaj kolejnego przewoźnika"
-          onClick={handleClearState}
-        />
+        {!found ? (
+          <Button
+            type="button"
+            name="dodaj kolejnego przewoźnika"
+            onClick={handleClearState}
+          />
+        ) : (
+          ""
+        )}
         <Button
           type="button"
           name="usuń przewoźnika"
