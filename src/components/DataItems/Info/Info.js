@@ -104,12 +104,6 @@ const Info = ({ found }) => {
 
     if (!isEdit) {
       dispatch(addSubcontractor(allData));
-      // if (!subcontractor) {
-      //   setIsSave(false);
-      //   console.log(false);
-      // } else {
-      //   console.log(true);
-      // }
     } else {
       const _id = subcontractor._id;
       const newData = {

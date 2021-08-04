@@ -47,7 +47,7 @@ const BoxItem = ({ isFound = false }) => {
       setPositionB4(true);
     }
   };
-  console.log(positionB1, positionB2);
+
   const menuItemsViev = menuItems.map((item) => {
     const { id, style, name } = item;
     return (
