@@ -201,8 +201,7 @@ const Info = ({ found }) => {
               >
                 {({ input, meta }) => (
                   <div>
-                    <label>Nazwa Firmy</label>
-                    <input type="text" placeholder="wpisz" {...input} />
+                    <input type="text" placeholder="Nazwa Firmy" {...input} />
                     {meta.error && meta.touched && <span>{meta.error}</span>}
                   </div>
                 )}
@@ -215,8 +214,7 @@ const Info = ({ found }) => {
               >
                 {({ input, meta }) => (
                   <div>
-                    <label htmlFor="adress">Adres</label>
-                    <input type="text" placeholder="wpisz" {...input} />
+                    <input type="text" placeholder="adres" {...input} />
                     {meta.error && meta.touched && <span>{meta.error}</span>}
                   </div>
                 )}
@@ -228,8 +226,8 @@ const Info = ({ found }) => {
               >
                 {({ input, meta }) => (
                   <div>
-                    <label>Kod pocztowy</label>
-                    <input type="zip-code" placeholder="wpisz" {...input} />
+             
+                    <input type="zip-code" placeholder="Kod pocztowy" {...input} />
                     {meta.error && meta.touched && <span>{meta.error}</span>}
                   </div>
                 )}
@@ -241,8 +239,8 @@ const Info = ({ found }) => {
               >
                 {({ input, meta }) => (
                   <div>
-                    <label>Miasto</label>
-                    <input type="text" placeholder="wpisz" {...input} />
+                
+                    <input type="text" placeholder="miasto" {...input} />
                     {meta.error && meta.touched && <span>{meta.error}</span>}
                   </div>
                 )}
@@ -255,8 +253,8 @@ const Info = ({ found }) => {
               >
                 {({ input, meta }) => (
                   <div>
-                    <label>Nip</label>
-                    <input type="text" placeholder="wpisz" {...input} />
+             
+                    <input type="text" placeholder="nip" {...input} />
                     {meta.error && meta.touched && <span>{meta.error}</span>}
                   </div>
                 )}
@@ -269,8 +267,8 @@ const Info = ({ found }) => {
               >
                 {({ input, meta }) => (
                   <div>
-                    <label>Telefon</label>
-                    <input type="text" placeholder="wpisz" {...input} />
+               
+                    <input type="text" placeholder="telefon 48 111 222 333" {...input} />
                     {meta.error && meta.touched && <span>{meta.error}</span>}
                   </div>
                 )}
@@ -282,8 +280,8 @@ const Info = ({ found }) => {
               >
                 {({ input, meta }) => (
                   <div>
-                    <label>Mail</label>
-                    <input type="mail" placeholder="wpisz" {...input} />
+          
+                    <input type="mail" placeholder="Email" {...input} />
                     {meta.error && meta.touched && <span>{meta.error}</span>}
                   </div>
                 )}
@@ -291,8 +289,8 @@ const Info = ({ found }) => {
               <Field name="contactP" initialValue={isEdit ? contactP : null}>
                 {({ input, meta }) => (
                   <div>
-                    <label>Osoba kontaktowa</label>
-                    <input type="text" placeholder="wpisz" {...input} />
+                  
+                    <input type="text" placeholder="osoba kontaktowa" {...input} />
                     {meta.error && meta.touched && <span>{meta.error}</span>}
                   </div>
                 )}
@@ -300,8 +298,8 @@ const Info = ({ found }) => {
               <Field name="www" initialValue={isEdit ? www : null}>
                 {({ input, meta }) => (
                   <div>
-                    <label>www</label>
-                    <input type="text" placeholder="wpisz" {...input} />
+               
+                    <input type="text" placeholder="www" {...input} />
                     {meta.error && meta.touched && <span>{meta.error}</span>}
                   </div>
                 )}
@@ -336,7 +334,7 @@ const Info = ({ found }) => {
                   </div>
                 )}
               </Field>
-              <div className={styles.kinfOfTransport}>
+              <div className={styles.kindOfTransport}>
                 <p>Rodzaj transportu</p>
                 <Field
                   name="kindOf"

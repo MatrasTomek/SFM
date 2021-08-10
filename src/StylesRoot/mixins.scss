@@ -84,6 +84,7 @@
     border: none;
     color: $text-second;
     font-size: $xs-fz;
+    // border: 1px solid $text-first;
 
     @media screen and (min-width:map-get($breakpoints, medium)) {
         font-size: $s-fz;

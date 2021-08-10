@@ -10,7 +10,7 @@
             width: 100%;
             display: flex;
             flex-wrap: wrap;
-
+     
 
             p {
                 width: 100%;
@@ -157,20 +157,27 @@
             }
         }
     }
+.kindOfTransport{
+    margin-bottom: 10px;
+
+}
+
 
     .buttons {
         width: 100%;
         margin-top: 20px;
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
 
 
         button {
-            flex-basis: 70%;
             @include lightButton;
             @include smallButton;
+            flex-basis: 40%;
+            margin-bottom: 15px;
+        
         }
 
         div {
@@ -192,16 +199,51 @@
             display: flex;
 
             p {
-                color: $text-second;
+                color: $text-first;
+              
             }
 
             p:nth-child(2) {
-                margin-left: 20px;
+                margin-left: 15px;
+                color: $text-second;
+            }
+        }
+        .topDirections{
+          
+            div{
+               
+                margin-left: 15px;
+                display: flex;
+                justify-content: space-between;
+            
+                p{
+                    margin: auto;
+                    flex-basis: 30%;
+                    color: $text-second;
+                    margin: 0 5px 0 5px;
+                }
             }
         }
     }
 
-    @media screen and (orientation: landscape) {}
+    @media screen and (orientation: landscape) {
 
-    @media screen and (min-width: map-get($breakpoints, medium)) {}
+        .kindOfTransport{
+           flex-basis: 50%;
+          
+        }
+        
+        .topDirections{
+            flex-basis: 50%;
+        }
+    }
+
+    @media screen and (min-width: map-get($breakpoints, medium)) {
+        .buttons {
+            
+            button{
+                flex-basis: 25%;
+            }
+        }
+    }
 }
