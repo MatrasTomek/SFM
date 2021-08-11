@@ -107,3 +107,22 @@
         font-size: $m-fz;
     }
 }
+
+@mixin selectItem {
+    margin: 10 auto;
+    padding: 5px 10px;
+    background-color: $box;
+    border: 1px solid $text-first;
+    border-radius: $radius;
+    color: $text-second;
+    font-size: $xs-fz;
+
+    @media screen and (min-width:map-get($breakpoints, medium)) {
+        font-size: $s-fz;
+    }
+
+    @media screen and (min-width:map-get($breakpoints, large)) {
+        font-size: $m-fz;
+    }
+
+}

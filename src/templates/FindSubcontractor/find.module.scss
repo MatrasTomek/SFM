@@ -7,22 +7,152 @@
     padding: 20px;
     background-color: $background;
 
-    .buttons {}
+    .buttons {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+
+        button {
+            margin: 20px auto;
+            @include lightButton;
+            @include smallButton;
+        }
+
+        .search {
+            width: 100%;
+
+            form {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+
+                select {
+                    @include selectItem;
+                    margin-bottom: 20px;
+                    width: 60%;
+
+                    option {
+                        font-size: $xs-fz;
+                    }
+                }
+
+                input {
+                    @include smallInput;
+                }
+
+                .icon {
+                    width: 30%;
+                }
+            }
+        }
+    }
 
     .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
         .infoItem {
             display: flex;
             width: 90%;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             padding: 5px;
             border: 1px solid $text-first;
             border-radius: $radius;
             cursor: pointer;
 
-
-
             p {
                 color: $text-second;
+
+            }
+        }
+    }
+
+    @media screen and (orientation: landscape) {
+        .buttons {
+            .search {
+
+
+                form {
+                    flex-direction: row;
+                    justify-content: space-around;
+                    align-items: center;
+
+                    select {
+                        margin-bottom: 0;
+                        width: 35%;
+                    }
+
+                    input {
+                        width: 40%;
+                        margin: 0;
+                    }
+
+                    .icon {
+                        margin: 0;
+                        width: 10%;
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    @media screen and (min-width:map-get($breakpoints, medium)) {
+        .buttons {
+            button {
+                width: 160px;
+            }
+        }
+
+        .info {
+
+            .infoItem {
+                width: 70%;
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, large)) {
+        .buttons {
+            flex-direction: row;
+
+            button {
+                margin: 0;
+                width: 180px;
+            }
+
+            .search {
+                form {
+                    select {
+                        width: 30%;
+                    }
+
+                    input {
+                        width: 40%;
+
+                    }
+
+                    .icon {
+
+                        width: 10%;
+                    }
+                }
+            }
+        }
+
+        .info {
+            align-items: flex-start;
+
+            .infoItem {
+
+                width: 60%;
 
             }
         }
