@@ -5,4 +5,204 @@
         text-align: center;
         color: $text-second;
     }
+
+    .itemsOfVechicles {
+        .fleetItem {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid $text-first;
+
+            div {
+                display: flex;
+                justify-content: center;
+
+                p:nth-child(1) {
+                    margin-right: 15px;
+                }
+
+                p {
+                    color: $text-first;
+
+                    span {
+                        color: $text-second;
+
+                    }
+                }
+            }
+
+            p {
+                margin-right: 15px;
+                color: $text-first;
+
+                span {
+                    color: $text-second;
+                }
+            }
+
+            .itemButtons {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                margin-top: 20px;
+
+                button {
+                    @include smallButton;
+                    @include lightButton;
+                    width: 40%
+                }
+            }
+        }
+    }
+
+    .addItemForm {
+        margin-top: 20px;
+        border: 1px solid $text-first;
+        border-radius: $radius;
+        padding: 15px;
+
+        form {
+            .kindOf {
+                margin: 10px auto;
+                display: flex;
+                justify-content: space-around;
+            }
+
+            .quantity {
+                display: flex;
+                flex-direction: column;
+
+                input {
+                    margin-bottom: 25px;
+                }
+
+            }
+
+            .specialEq {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                input {
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 10px;
+                }
+
+                label {
+                    margin-right: 20px;
+                }
+            }
+
+            .additional {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+            .buttons {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                button {
+                    @include smallButton;
+                    @include lightButton;
+                }
+            }
+
+            select {
+                @include selectItem;
+            }
+
+            label {
+                @include labelItem;
+            }
+
+            input {
+                @include smallInput;
+            }
+
+
+            textarea {
+                width: 200px;
+                height: 80px;
+                border: 1px solid $text-first;
+                border-radius: $radius;
+                background-color: $box;
+            }
+
+
+
+        }
+    }
+
+    @media screen and (orientation:landscape) {
+        .itemsOfVechicles {
+            .fleetItem {
+
+                .itemButtons {
+
+                    button {
+
+                        width: 20%
+                    }
+                }
+            }
+        }
+
+        form {
+            .buttons {
+                button {
+                    width: 120px;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: map-get($breakpoints, medium)) {
+        .addItemForm {
+            form {
+                div {
+                    margin: 10px auto;
+                    display: flex;
+                    justify-content: space-around;
+
+
+                    div {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        input {
+                            width: 20px;
+                            height: 20px;
+                            margin-right: 10px;
+
+                        }
+                    }
+
+                    select {
+                        @include selectItem;
+                    }
+
+                    label {
+                        @include labelItem;
+                    }
+
+                    input {
+                        @include smallInput;
+                    }
+
+                    textarea {
+                        width: 400px;
+                        height: 100px;
+
+                    }
+                }
+
+
+            }
+        }
+    }
 }

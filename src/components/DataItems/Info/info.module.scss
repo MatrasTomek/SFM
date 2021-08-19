@@ -10,7 +10,7 @@
             width: 100%;
             display: flex;
             flex-wrap: wrap;
-     
+
 
             p {
                 width: 100%;
@@ -46,9 +46,7 @@
                 text-align: center;
             }
 
-            select {
-                option {}
-            }
+            select {}
         }
 
         div:nth-child(1) {
@@ -157,10 +155,11 @@
             }
         }
     }
-.kindOfTransport{
-    margin-bottom: 10px;
 
-}
+    .kindOfTransport {
+        margin-bottom: 10px;
+
+    }
 
 
     .buttons {
@@ -177,7 +176,7 @@
             @include smallButton;
             flex-basis: 40%;
             margin-bottom: 15px;
-        
+
         }
 
         div {
@@ -185,7 +184,7 @@
             margin-top: 20px;
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-around;
             align-items: center;
 
             button {
@@ -200,7 +199,7 @@
 
             p {
                 color: $text-first;
-              
+
             }
 
             p:nth-child(2) {
@@ -208,15 +207,16 @@
                 color: $text-second;
             }
         }
-        .topDirections{
-          
-            div{
-               
+
+        .topDirections {
+
+            div {
+
                 margin-left: 15px;
                 display: flex;
                 justify-content: space-between;
-            
-                p{
+
+                p {
                     margin: auto;
                     flex-basis: 30%;
                     color: $text-second;
@@ -228,20 +228,20 @@
 
     @media screen and (orientation: landscape) {
 
-        .kindOfTransport{
-           flex-basis: 50%;
-          
+        .kindOfTransport {
+            flex-basis: 50%;
+
         }
-        
-        .topDirections{
+
+        .topDirections {
             flex-basis: 50%;
         }
     }
 
     @media screen and (min-width: map-get($breakpoints, medium)) {
         .buttons {
-            
-            button{
+
+            button {
                 flex-basis: 25%;
             }
         }

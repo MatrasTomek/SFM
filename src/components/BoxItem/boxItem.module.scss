@@ -3,9 +3,8 @@
 .wrapper {
     position: relative;
     width: 100%;
-    height: 200vh;
-    overflow: hidden;
-
+    height: 500vh;
+    overflow-x: hidden;
 
     .menu {
         position: absolute;
@@ -17,6 +16,7 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
+
 
         .item {
             width: 75px;
@@ -51,6 +51,7 @@
         left: 50%;
         transform: translateX(-50%);
         width: 90%;
+        height: auto;
         padding: 20px 10px;
         background-color: $box;
         border: 2px solid $text-first;
@@ -58,11 +59,7 @@
         transition: 0.5s
     }
 
-    @media screen and (orientation: landscape) {
-        height: 220vh;
-    }
+    @media screen and (orientation: landscape) {}
 
-    @media screen and (min-width: map-get($breakpoints, medium)) {
-        height: 130vh;
-    }
+    @media screen and (min-width: map-get($breakpoints, medium)) {}
 }

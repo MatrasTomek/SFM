@@ -2,7 +2,8 @@
 
 .wrapper {
     width: 100%;
-    height: auto;
+    min-height: 80vh;
     margin-top: $header;
     background-color: $background;
+
 }

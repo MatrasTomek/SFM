@@ -79,14 +79,16 @@ const Fleet = () => {
   const fleetItemsViev = !savedFleet.length
     ? ""
     : savedFleet.map((item, index) => (
-        <div key={Math.random() * 0.01245}>
-          <p>{item.kindOfFleet}</p>
-          <p>ilość: {item.noOfTucks}</p>
-          <p>ładowność kg:{item.weight}</p>
-          <p>miejsca paletowe:{item.pallets}</p>
-          <p>kontrola temperatury: {item.frigo ? "tak" : "brak"}</p>
-          <p>adr: {item.adr ? "tak" : "brak"}</p>
-          <p>dodatkowe: {item.additional}</p>
+        <div className={styles.fleetItem} key={Math.random() * 0.01245}>
+          <div>
+            <p><span>{item.kindOfFleet}</span></p>
+            <p>ilość: <span>{item.noOfTrucks}</span></p>
+          </div>
+          <p>ładowność: <span>{item.weight}</span> kg</p>
+          <p>miejsca paletowe: <span>{item.pallets}</span></p>
+          <p>kontrola temperatury: <span>{item.frigo ? "tak" : "brak"}</span></p>
+          <p>adr: <span>{item.adr ? "tak" : "brak"}</span></p>
+          <p>dodatkowe: <span>{item.additional}</span></p>
           <div className={styles.itemButtons}>
             <Button
               name="usuń"
@@ -143,71 +145,67 @@ const Fleet = () => {
           <div className={styles.itemsOfVechicles}>{fleetItemsViev}</div>
           <div className={styles.addItemForm}>
             <form onSubmit={handleOnSubmit}>
-              <label htmlFor="kindOfFleet">Rodzaj pojazdu</label>
-              <select
-                name="kindOfFleet"
-                onChange={handleSetKindOf}
-                value={!isEdit ? kindOfFleetV : editedData.kindOfFleet}
-              >
-                {fleetOption}
-              </select>
-
-              <div>
-                <label htmlFor="noOfTucks">Ilość pojazdów</label>
-                <input
+              <div className={styles.kindOf}>
+                <label htmlFor="kindOfFleet">Rodzaj pojazdu</label>
+                <select
+                  name="kindOfFleet"
+                  onChange={handleSetKindOf}
+                  value={!isEdit ? kindOfFleetV : editedData.kindOfFleet}
+                  >
+                  {fleetOption}
+                </select>
+              </div>
+              <div className={styles.quantity}>
+               
+                  <input
                   name="noOfTucks"
                   type="text"
+                  placeholder="wpisz ilość"
                   onChange={handleSetNoOfTrucks}
                   value={noOfTrucksV}
-                />
-              </div>
-
-              <div>
-                <label>Ładowność</label>
-                <input
+                  />
+                  <input
                   name="weight"
                   type="text"
+                  placeholder="wpisz ładowność"
                   onChange={handleSetWeight}
                   value={weightV}
-                />
-              </div>
-
-              <div>
-                <label>Ilość palet</label>
-                <input
+                  />
+                   <input
                   name="pallets"
                   type="text"
+                  placeholder="ilość palet"
                   onChange={handleSetPallets}
                   value={palletsV}
                 />
-              </div>
+  
 
-              <div>
-                <label>Adr</label>
-                <input
-                  name="adr"
-                  type="checkbox"
-                  onChange={handleSetAdr}
-                  value={adrV}
-                />
               </div>
+              <div className={styles.specialEq}>
+                <div>
+                  <input
+                    name="adr"
+                    type="checkbox"
+                    onChange={handleSetAdr}
+                    value={adrV}
+                  />
+                  <label>Adr</label>
+                </div>
+                <div>
+                  <input
+                    name="frigo"
+                    type="checkbox"
+                    onChange={handleSetFrigo}
+                    value={frigoV}
+                  />
+                  <label>Kontrola temp</label>
+                </div>
 
-              <div>
-                <label>Kontrola temp</label>
-                <input
-                  name="frigo"
-                  type="checkbox"
-                  onChange={handleSetFrigo}
-                  value={frigoV}
-                />
               </div>
-
-              <div>
-                <label>Dodatkowe informacje</label>
-                <input
-                  name="additional "
-                  type="text"
-                  placeholder="wpisz"
+              <div className={styles.additional}>
+                <textarea
+                  name="additional"
+                  placeholder="Informacje dodatkowe"
                   onChange={handleSetAdditional}
                   value={additionalV}
                 />
