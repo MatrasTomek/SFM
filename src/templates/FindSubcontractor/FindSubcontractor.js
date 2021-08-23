@@ -58,7 +58,9 @@ const FindSubcontractor = () => {
         onClick={handleSelectItem}
         id={index}
       >
-        <p>{item.carrierName}</p>
+        <p onClick={handleSelectItem} id={index}>
+          {item.carrierName}
+        </p>
       </div>
     ))
   ) : (

@@ -65,8 +65,10 @@
             border-radius: $radius;
             cursor: pointer;
 
+
             p {
                 color: $text-second;
+
 
             }
         }
@@ -75,7 +77,6 @@
     @media screen and (orientation: landscape) {
         .buttons {
             .search {
-
 
                 form {
                     flex-direction: row;
@@ -149,6 +150,7 @@
 
         .info {
             align-items: flex-start;
+            margin-left: 80px;
 
             .infoItem {
 
