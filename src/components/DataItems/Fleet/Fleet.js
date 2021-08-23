@@ -12,21 +12,17 @@ const Fleet = () => {
 
   const dispatch = useDispatch();
 
-  const [isEdit, setIsEdit] = useState(false);
-  const [index, setIndex] = useState(false);
-  const [editedData, setEditedData] = useState(false);
+  // const [isEdit, setIsEdit] = useState(false);
+  // const [index, setIndex] = useState(false);
+  // const [editedData, setEditedData] = useState(false);
 
   const [kindOfFleetV, setKindOfFleetV] = useState("");
-  const [noOfTrucksV, setNoOfTrucksV] = useState(
-    !isEdit ? "" : editedData.noOfTrucks
-  );
-  const [weightV, setWeightV] = useState(!isEdit ? "" : editedData.weight);
-  const [palletsV, setPalletsV] = useState(!isEdit ? "" : editedData.pallets);
-  const [adrV, setAdrV] = useState(!isEdit ? false : editedData.adr);
-  const [frigoV, setFrigoV] = useState(!isEdit ? false : editedData.frigo);
-  const [additionalV, setAdditionalV] = useState(
-    !isEdit ? "" : editedData.additional
-  );
+  const [noOfTrucksV, setNoOfTrucksV] = useState("");
+  const [weightV, setWeightV] = useState("");
+  const [palletsV, setPalletsV] = useState("");
+  const [adrV, setAdrV] = useState(false);
+  const [frigoV, setFrigoV] = useState(false);
+  const [additionalV, setAdditionalV] = useState("");
 
   const handleSetKindOf = (e) => {
     e.preventDefault();
@@ -57,16 +53,16 @@ const Fleet = () => {
     setAdditionalV(e.target.value);
   };
 
-  const handleEditFleetItem = (e) => {
-    setIsEdit(true);
-    const index = Number(e.target.id);
-    setIndex(index);
-    setEditedData(savedFleet[index]);
-  };
+  // const handleEditFleetItem = (e) => {
+  //   setIsEdit(true);
+  //   const index = Number(e.target.id);
+  //   setIndex(index);
+  //   setEditedData(savedFleet[index]);
+  // };
 
   const handleDeleteFleetItem = (e) => {
-    setIsEdit(false);
-    setEditedData(false);
+    // setIsEdit(false);
+    // setEditedData(false);
     const index = e.target.id;
     savedFleet.splice(index, 1);
     const allData = {
@@ -81,14 +77,28 @@ const Fleet = () => {
     : savedFleet.map((item, index) => (
         <div className={styles.fleetItem} key={Math.random() * 0.01245}>
           <div>
-            <p><span>{item.kindOfFleet}</span></p>
-            <p>ilość: <span>{item.noOfTrucks}</span></p>
+            <p>
+              <span>{item.kindOfFleet}</span>
+            </p>
+            <p>
+              ilość: <span>{item.noOfTrucks}</span>
+            </p>
           </div>
-          <p>ładowność: <span>{item.weight}</span> kg</p>
-          <p>miejsca paletowe: <span>{item.pallets}</span></p>
-          <p>kontrola temperatury: <span>{item.frigo ? "tak" : "brak"}</span></p>
-          <p>adr: <span>{item.adr ? "tak" : "brak"}</span></p>
-          <p>dodatkowe: <span>{item.additional}</span></p>
+          <p>
+            ładowność: <span>{item.weight}</span> kg
+          </p>
+          <p>
+            miejsca paletowe: <span>{item.pallets}</span>
+          </p>
+          <p>
+            kontrola temperatury: <span>{item.frigo ? "tak" : "brak"}</span>
+          </p>
+          <p>
+            adr: <span>{item.adr ? "tak" : "brak"}</span>
+          </p>
+          <p>
+            dodatkowe: <span>{item.additional}</span>
+          </p>
           <div className={styles.itemButtons}>
             <Button
               name="usuń"
@@ -100,12 +110,11 @@ const Fleet = () => {
               name={"edytuj"}
               type="button"
               id={index}
-              onClick={handleEditFleetItem}
+              // onClick={handleEditFleetItem}
             />
           </div>
         </div>
       ));
-
   const handleOnSubmit = (e) => {
     e.preventDefault();
     const fleetValue = {
@@ -123,11 +132,18 @@ const Fleet = () => {
       fleet: [...savedFleet, fleetValue],
     };
     dispatch(allFleetActions(allData));
-    if (isEdit) {
-      savedFleet.splice(index, 1);
-      setIsEdit(false);
-      setEditedData(false);
-    }
+    // if (isEdit) {
+    //   savedFleet.splice(index, 1);
+    //   setIsEdit(false);
+    //   setEditedData(false);
+    // }
+    setKindOfFleetV("");
+    setNoOfTrucksV("");
+    setWeightV("");
+    setPalletsV("");
+    setAdrV("");
+    setFrigoV("");
+    setAdditionalV("");
   };
 
   const fleetOption = FLEETS.map((item) => (
@@ -150,36 +166,33 @@ const Fleet = () => {
                 <select
                   name="kindOfFleet"
                   onChange={handleSetKindOf}
-                  value={!isEdit ? kindOfFleetV : editedData.kindOfFleet}
-                  >
+                  value={kindOfFleetV}
+                >
                   {fleetOption}
                 </select>
               </div>
               <div className={styles.quantity}>
-               
-                  <input
+                <input
                   name="noOfTucks"
                   type="text"
                   placeholder="wpisz ilość"
                   onChange={handleSetNoOfTrucks}
                   value={noOfTrucksV}
-                  />
-                  <input
+                />
+                <input
                   name="weight"
                   type="text"
                   placeholder="wpisz ładowność"
                   onChange={handleSetWeight}
                   value={weightV}
-                  />
-                   <input
+                />
+                <input
                   name="pallets"
                   type="text"
                   placeholder="ilość palet"
                   onChange={handleSetPallets}
                   value={palletsV}
                 />
-  
-
               </div>
               <div className={styles.specialEq}>
                 <div>
@@ -200,7 +213,6 @@ const Fleet = () => {
                   />
                   <label>Kontrola temp</label>
                 </div>
-
               </div>
               <div className={styles.additional}>
                 <textarea
@@ -212,7 +224,7 @@ const Fleet = () => {
               </div>
 
               <div className={styles.buttons}>
-                <Button type="submit" name={!isEdit ? "dodaj" : "aktualizuj"} />
+                <Button type="submit" name="dodaj" />
               </div>
             </form>
           </div>

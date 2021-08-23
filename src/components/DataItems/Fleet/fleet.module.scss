@@ -127,6 +127,7 @@
             textarea {
                 width: 200px;
                 height: 80px;
+                padding: 10px;
                 border: 1px solid $text-first;
                 border-radius: $radius;
                 background-color: $box;
@@ -160,9 +161,40 @@
         }
     }
 
-    @media screen and (min-width: map-get($breakpoints, medium)) {
+    @media screen and (min-width: map-get($breakpoints, small)) {
         .addItemForm {
             form {
+                .quantity {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+
+                    input {
+                        width: 30%;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: map-get($breakpoints, medium)) {
+        .itemsOfVechicles {
+            .fleetItem {
+
+                .itemButtons {
+
+                    button {
+
+                        width: 10%
+                    }
+                }
+            }
+        }
+
+        .addItemForm {
+            form {
+
+
                 div {
                     margin: 10px auto;
                     display: flex;
@@ -170,6 +202,7 @@
 
 
                     div {
+                        flex-basis: 45%;
                         display: flex;
                         justify-content: center;
                         align-items: center;
@@ -182,18 +215,6 @@
                         }
                     }
 
-                    select {
-                        @include selectItem;
-                    }
-
-                    label {
-                        @include labelItem;
-                    }
-
-                    input {
-                        @include smallInput;
-                    }
-
                     textarea {
                         width: 400px;
                         height: 100px;
@@ -201,6 +222,13 @@
                     }
                 }
 
+                .buttons {
+
+
+                    button {
+                        width: 15%;
+                    }
+                }
 
             }
         }
