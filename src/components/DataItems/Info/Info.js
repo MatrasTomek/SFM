@@ -226,8 +226,11 @@ const Info = ({ found }) => {
               >
                 {({ input, meta }) => (
                   <div>
-             
-                    <input type="zip-code" placeholder="Kod pocztowy" {...input} />
+                    <input
+                      type="zip-code"
+                      placeholder="Kod pocztowy"
+                      {...input}
+                    />
                     {meta.error && meta.touched && <span>{meta.error}</span>}
                   </div>
                 )}
@@ -239,7 +242,6 @@ const Info = ({ found }) => {
               >
                 {({ input, meta }) => (
                   <div>
-                
                     <input type="text" placeholder="miasto" {...input} />
                     {meta.error && meta.touched && <span>{meta.error}</span>}
                   </div>
@@ -253,7 +255,6 @@ const Info = ({ found }) => {
               >
                 {({ input, meta }) => (
                   <div>
-             
                     <input type="text" placeholder="nip" {...input} />
                     {meta.error && meta.touched && <span>{meta.error}</span>}
                   </div>
@@ -267,8 +268,11 @@ const Info = ({ found }) => {
               >
                 {({ input, meta }) => (
                   <div>
-               
-                    <input type="text" placeholder="telefon 48 111 222 333" {...input} />
+                    <input
+                      type="text"
+                      placeholder="telefon 48 111 222 333"
+                      {...input}
+                    />
                     {meta.error && meta.touched && <span>{meta.error}</span>}
                   </div>
                 )}
@@ -280,7 +284,6 @@ const Info = ({ found }) => {
               >
                 {({ input, meta }) => (
                   <div>
-          
                     <input type="mail" placeholder="Email" {...input} />
                     {meta.error && meta.touched && <span>{meta.error}</span>}
                   </div>
@@ -289,8 +292,11 @@ const Info = ({ found }) => {
               <Field name="contactP" initialValue={isEdit ? contactP : null}>
                 {({ input, meta }) => (
                   <div>
-                  
-                    <input type="text" placeholder="osoba kontaktowa" {...input} />
+                    <input
+                      type="text"
+                      placeholder="osoba kontaktowa"
+                      {...input}
+                    />
                     {meta.error && meta.touched && <span>{meta.error}</span>}
                   </div>
                 )}
@@ -298,7 +304,6 @@ const Info = ({ found }) => {
               <Field name="www" initialValue={isEdit ? www : null}>
                 {({ input, meta }) => (
                   <div>
-               
                     <input type="text" placeholder="www" {...input} />
                     {meta.error && meta.touched && <span>{meta.error}</span>}
                   </div>
@@ -336,22 +341,26 @@ const Info = ({ found }) => {
               </Field>
               <div className={styles.kindOfTransport}>
                 <p>Rodzaj transportu</p>
-                <Field
-                  name="kindOf"
-                  component="input"
-                  type="radio"
-                  value="upTo3.5T"
-                  initialValue={isEdit ? kindOf : null}
-                />{" "}
-                do 3.5T
-                <Field
-                  name="kindOf"
-                  component="input"
-                  type="radio"
-                  value="over3.5T"
-                  initialValue={isEdit ? kindOf : null}
-                />{" "}
-                powyżej 3.5T
+                <div>
+                  <Field
+                    id="upTo"
+                    name="kindOf"
+                    component="input"
+                    type="radio"
+                    value="do 3.5T"
+                    initialValue={isEdit ? kindOf : null}
+                  />{" "}
+                  <label htmlFor="upTo">do 3.5T</label>
+                  <Field
+                    id="over"
+                    name="kindOf"
+                    component="input"
+                    type="radio"
+                    value="powyżej 3.5T"
+                    initialValue={isEdit ? kindOf : null}
+                  />{" "}
+                  <label htmlFor="over"> powyżej 3.5T</label>
+                </div>
               </div>
 
               <div className={styles.topDirections}>

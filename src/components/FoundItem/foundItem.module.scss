@@ -1,0 +1,46 @@
+@import "../../StylesRoot/common.scss";
+
+.foundItem {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 1px solid $text-first;
+    border-radius: $radius;
+    margin-top: 20px;
+    padding: 5px;
+
+    h4 {
+        flex-basis: 100%;
+
+    }
+
+    .itemDetails {
+        flex-basis: 100%;
+        margin: 15px 0 15px 20px;
+
+    }
+
+    .buttons {
+        flex-basis: 90%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        button {
+            @include smallButton;
+            @include darkButton;
+            width: 100px;
+            justify-self: flex-end;
+        }
+
+        button:nth-child(1) {
+            width: 140px;
+            font-size: 14px;
+            margin-right: 20px;
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, large)) {
+        width: 45%;
+    }
+}
