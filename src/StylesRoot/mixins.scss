@@ -114,7 +114,7 @@
     background-color: $box;
     border: 1px solid $text-first;
     border-radius: $radius;
-    color: $text-second;
+    color: $text-first;
     font-size: $xs-fz;
 
     @media screen and (min-width:map-get($breakpoints, medium)) {

@@ -65,6 +65,7 @@
                 margin: 10px auto;
                 display: flex;
                 justify-content: space-around;
+
             }
 
             .quantity {
@@ -79,19 +80,42 @@
 
             .specialEq {
                 display: flex;
-                justify-content: center;
+                justify-content: space-around;
                 align-items: center;
+                margin-bottom: 20px;
 
-                input {
-                    width: 20px;
-                    height: 20px;
-                    margin-right: 10px;
+
+                label>input[type="checkbox"] {
+                    display: none;
+
                 }
 
-                label {
-                    margin-right: 20px;
+                label>input[type="checkbox"]+*::before {
+                    content: "";
+                    display: inline-block;
+                    vertical-align: bottom;
+                    width: 18px;
+                    height: 18px;
+                    margin-right: 5px;
+                    border: 1px solid $text-first;
+                    border-radius: $radius;
                 }
+
+                label>input[type="checkbox"]:checked+*::before {
+                    content: "✓";
+                    color: white;
+                    text-align: center;
+                    background: $text-first;
+                    border-color: $text-first;
+                }
+
+                label>input[type="checkbox"]:checked+* {
+                    color: $text-first;
+                }
+
             }
+
+
 
             .additional {
                 display: flex;
@@ -131,6 +155,7 @@
                 border: 1px solid $text-first;
                 border-radius: $radius;
                 background-color: $box;
+                color: $text-second;
             }
 
 
@@ -193,13 +218,10 @@
 
         .addItemForm {
             form {
-
-
                 div {
                     margin: 10px auto;
                     display: flex;
                     justify-content: space-around;
-
 
                     div {
                         flex-basis: 45%;
@@ -222,15 +244,43 @@
                     }
                 }
 
+                .specialEq {
+                    label>input[type="checkbox"]+*::before {
+
+                        width: 22px;
+                        height: 22px;
+
+                    }
+
+                }
+
                 .buttons {
-
-
                     button {
                         width: 15%;
                     }
                 }
+            }
+
+
+        }
+    }
+
+    @media screen and (min-width: map-get($breakpoints, large)) {
+        .addItemForm {
+            form {
+
+                .specialEq {
+                    label>input[type="checkbox"]+*::before {
+
+                        width: 25px;
+                        height: 25px;
+
+                    }
+
+                }
 
             }
+
         }
     }
 }

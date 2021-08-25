@@ -38,6 +38,7 @@
                 border: 1px solid $text-first;
                 border-radius: $radius;
                 background-color: $box;
+                color: $text-second;
             }
 
             span {
@@ -46,7 +47,54 @@
                 text-align: center;
             }
 
-            select {}
+            select {
+                @include selectItem;
+                padding: 1px 3px;
+            }
+
+
+
+        }
+
+        .kindOfTransport {
+
+
+            div {
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+
+
+                input[type="radio"] {
+                    opacity: 0;
+                    position: fixed;
+                    width: 0;
+                }
+
+                label {
+                    display: inline-block;
+                    flex-basis: 33%;
+                    background-color: $box;
+                    text-align: center;
+                    padding: 2px;
+                    font-size: 14px;
+                    border: 1px solid $text-first;
+                    border-radius: $radius;
+                }
+            }
+
+            div {
+                input[type="radio"]:checked+label {
+                    background-color: $text-first;
+
+                }
+            }
+
+            div {
+                label:hover {
+                    background-color: $text-first;
+                }
+            }
         }
 
         div:nth-child(1) {
