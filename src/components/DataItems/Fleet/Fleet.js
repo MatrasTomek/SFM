@@ -42,11 +42,11 @@ const Fleet = () => {
   };
   const handleSetAdr = (e) => {
     e.preventDefault();
-    setAdrV(e.target.value);
+    setAdrV(!adrV);
   };
   const handleSetFrigo = (e) => {
     e.preventDefault();
-    setFrigoV(e.target.value);
+    setFrigoV(!frigoV);
   };
   const handleSetAdditional = (e) => {
     e.preventDefault();
@@ -141,8 +141,8 @@ const Fleet = () => {
     setNoOfTrucksV("");
     setWeightV("");
     setPalletsV("");
-    setAdrV("");
-    setFrigoV("");
+    setAdrV(false);
+    setFrigoV(false);
     setAdditionalV("");
   };
 
@@ -195,24 +195,27 @@ const Fleet = () => {
                 />
               </div>
               <div className={styles.specialEq}>
-                <div>
+                <label>
                   <input
+                    id="adr"
                     name="adr"
                     type="checkbox"
                     onChange={handleSetAdr}
                     value={adrV}
                   />
-                  <label>Adr</label>
-                </div>
-                <div>
+                  <span>ADR</span>
+                </label>
+
+                <label>
                   <input
+                    id="frigo"
                     name="frigo"
                     type="checkbox"
                     onChange={handleSetFrigo}
                     value={frigoV}
                   />
-                  <label>Kontrola temp</label>
-                </div>
+                  <span>Kontrola temp.</span>
+                </label>
               </div>
               <div className={styles.additional}>
                 <textarea

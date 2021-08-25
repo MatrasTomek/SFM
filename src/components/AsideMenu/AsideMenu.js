@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { clearSubcontarctor } from "../../data/actions";
+import { clearSubcontarctor, getAllSubcontractors } from "../../data/actions";
 import { Link } from "react-router-dom";
 import styles from "./asideMenu.module.scss";
 
@@ -13,6 +13,9 @@ const AsideMenu = () => {
     dispatch(clearSubcontarctor());
   };
 
+  const handleGetSubcontractors = () => {
+    dispatch(getAllSubcontractors());
+  };
   const handleOpenCloseMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -54,7 +57,9 @@ const AsideMenu = () => {
             <Link to="/find-subcontractor" onClick={handleClearState}>
               Znajdź przewoźnika
             </Link>
-            <Link to="/">Statystyki</Link>
+            <Link to="/statistics" onClick={handleGetSubcontractors}>
+              Statystyki
+            </Link>
             <Link to="/">Kalendarz</Link>
           </ul>
         </nav>

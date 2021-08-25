@@ -36,7 +36,6 @@ const FindSubcontractor = () => {
 
   const handleSetSubcontractorNo = (e) => {
     e.preventDefault();
-    console.log();
     setItemToFind(e.target.value);
   };
   const handleSearchSubcontractor = (e) => {

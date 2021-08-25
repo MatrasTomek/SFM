@@ -1,0 +1,266 @@
+@import "../../StylesRoot/common.scss";
+
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    margin-top: $header;
+    background-color: $background;
+    color: $text-second;
+
+
+    .selectors {
+        padding: 30px;
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid $text-first;
+            border-radius: $radius;
+            background-color: $box;
+
+            .cityAndZip {
+                margin-top: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                align-items: center;
+
+                div {
+                    input {
+                        @include smallInput;
+                        margin-left: 10px;
+                        width: 160px;
+                    }
+                }
+            }
+
+            .kindOfTransport {
+                margin: 15px auto;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-items: center;
+
+                p {
+                    margin: 10px auto;
+                }
+
+                div {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-around;
+
+                    input[type="radio"] {
+                        opacity: 0;
+                        position: fixed;
+                        width: 0;
+                    }
+
+                    label {
+                        display: inline-block;
+                        flex-basis: 32%;
+                        background-color: $box;
+                        text-align: center;
+                        padding: 2px;
+                        font-size: 14px;
+                        border: 1px solid $text-first;
+                        border-radius: $radius;
+                    }
+                }
+
+                div {
+                    input[type="radio"]:checked+label {
+                        background-color: $text-first;
+
+                    }
+                }
+
+                div {
+                    label:hover {
+                        background-color: $text-first;
+                    }
+                }
+            }
+
+            .dirAndKind {
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: space-around;
+                margin-bottom: 20px;
+
+
+                div {
+                    flex-basis: 35%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+
+                    label {
+                        flex-basis: 100%;
+                        text-align: center;
+                    }
+
+                    select {
+                        @include selectInput;
+                        color: $text-first;
+
+                        option {
+                            @include selectItem;
+                        }
+                    }
+                }
+            }
+
+            .specialEq {
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                margin-bottom: 20px;
+
+
+                label>input[type="checkbox"] {
+                    display: none;
+
+                }
+
+                label>input[type="checkbox"]+*::before {
+                    content: "";
+                    display: inline-block;
+                    vertical-align: bottom;
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 5px;
+                    border: 1px solid $text-first;
+                    border-radius: $radius;
+                }
+
+                label>input[type="checkbox"]:checked+*::before {
+                    content: "✓";
+                    color: white;
+                    text-align: center;
+                    background: $text-first;
+                    border-color: $text-first;
+                }
+
+                label>input[type="checkbox"]:checked+* {
+                    color: $text-first;
+                }
+
+            }
+
+            .buttons {
+                margin: 20px auto;
+
+                button {
+                    @include smallButton;
+                    @include lightButton;
+
+                }
+            }
+        }
+    }
+
+    .informations {
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+
+        h3 {
+            text-align: center;
+        }
+    }
+
+    @media screen and (orientation: landscape) {
+        .selectors {
+            .form {
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+
+                .cityAndZip {
+                    flex-basis: 100%;
+                    flex-direction: row;
+                    justify-content: space-around;
+                }
+
+                .kindOfTransport {
+                    flex-basis: 80%;
+                    margin-bottom: 20px;
+
+                    div {
+                        label {
+                            flex-basis: 28%;
+                        }
+                    }
+                }
+
+                .dirAndKind {
+                    flex-basis: 50%;
+                }
+
+                .specialEq {
+                    flex-basis: 50%;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, medium)) {
+        .selectors {
+            .form {
+                .cityAndZip {
+                    div {
+                        input {
+                            width: 200px;
+                        }
+                    }
+                }
+
+                .kindOfTransport {
+                    div {
+                        label {
+                            flex-basis: 20%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, large)) {
+        .informations {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, x-large)) {
+        .selectors {
+            .form {
+                .cityAndZip {
+                    div {
+                        input {
+                            width: 240px;
+                        }
+                    }
+                }
+
+                .kindOfTransport {
+                    div {
+                        label {
+                            flex-basis: 15%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
