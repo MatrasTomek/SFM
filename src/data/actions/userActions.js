@@ -3,6 +3,7 @@ import {
   cookieSet,
   cookieDel,
   addSpinner,
+  getAllEvents,
   removeSpinner,
   timeoutShowTask,
 } from "./index";
@@ -30,6 +31,7 @@ export const userLogin = (loginData) => async (dispatch) => {
   const { data, status } = await request.post("users", loginData);
   if (status === 200) {
     dispatch(removeSpinner());
+    dispatch(getAllEvents());
     dispatch({
       type: USER_LOGIN,
       payload: data,

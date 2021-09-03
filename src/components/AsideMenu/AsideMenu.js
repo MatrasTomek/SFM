@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { clearSubcontarctor, getAllSubcontractors } from "../../data/actions";
+import {
+  clearSubcontarctor,
+  getAllSubcontractors,
+  getAllEvents,
+} from "../../data/actions";
 import { Link } from "react-router-dom";
 import styles from "./asideMenu.module.scss";
 
@@ -16,6 +20,11 @@ const AsideMenu = () => {
   const handleGetSubcontractors = () => {
     dispatch(getAllSubcontractors());
   };
+
+  const handleGetEvents = () => {
+    dispatch(getAllEvents());
+  };
+
   const handleOpenCloseMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -60,7 +69,7 @@ const AsideMenu = () => {
             <Link to="/statistics" onClick={handleGetSubcontractors}>
               Statystyki
             </Link>
-            <Link to="/">Kalendarz</Link>
+            <Link to="/calendar">Kalendarz</Link>
           </ul>
         </nav>
       </aside>
