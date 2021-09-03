@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 import {
   AddSubcontractor,
+  Calendar,
   CreateAccount,
   FindSubcontractor,
   MainSection,
@@ -37,6 +38,11 @@ const MainSwitch = () => {
         )}
         {user.length || cookie.isCookie ? (
           <Route exact path="/statistics" render={() => <Statistics />} />
+        ) : (
+          ""
+        )}
+        {user.length || cookie.isCookie ? (
+          <Route exact path="/calendar" render={() => <Calendar />} />
         ) : (
           ""
         )}

@@ -1,0 +1,97 @@
+@import "../../StylesRoot/common.scss";
+
+
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    margin-top: $header;
+    padding-top: 60px;
+    background-color: $background;
+    color: $text-second;
+
+    .inside {
+        width: 90%;
+        margin: 0 auto;
+        padding: 30px 10px;
+        background-color: $text-first;
+        border-radius: $radius;
+
+        .navigation {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+
+
+            .update {
+                flex-basis: 100%;
+                display: flex;
+                justify-content: space-around;
+
+                button {
+                    @include smallButton;
+                    @include lightButton;
+                    width: 25%;
+
+                    &:hover {
+                        background-color: $background;
+                        color: $text-second;
+                    }
+                }
+            }
+
+            .vievs {
+                flex-basis: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                margin: 20px auto;
+
+                button {
+                    @include smallButton;
+                    @include lightButton;
+                    width: 25%;
+
+                    &:hover {
+                        background-color: $background;
+                        color: $text-second;
+                    }
+                }
+
+                p {
+                    flex-basis: 20%;
+                    text-align: center;
+                }
+            }
+        }
+
+        .calendarDays {
+            display: grid;
+            grid-template-columns: auto auto auto auto auto auto auto;
+            gap: 4px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 10px;
+            background-color: $box;
+            border-radius: $radius;
+
+            .day {
+                height: 40px;
+                border: 1px solid $text-first;
+                border-radius: $radius;
+                cursor: pointer;
+                transition: 0.4s;
+
+                .itemEvent {
+                    color: red;
+                }
+
+                &:hover {
+                    background-color: $background;
+                }
+            }
+        }
+
+    }
+}

@@ -1,4 +1,5 @@
 export { default as AddSubcontractor } from "./AddSubcontractor";
+export { default as Calendar } from "./Calendar";
 export { default as CreateAccount } from "./CreateAccount-viev";
 export { default as FindSubcontractor } from "./FindSubcontractor";
 export { default as Header } from "./Header";
