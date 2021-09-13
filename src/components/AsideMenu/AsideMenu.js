@@ -69,7 +69,7 @@ const AsideMenu = () => {
             <Link to="/statistics" onClick={handleGetSubcontractors}>
               Statystyki
             </Link>
-            <Link to="/calendar">Kalendarz</Link>
+            <Link to="/calendar">Terminarz</Link>
           </ul>
         </nav>
       </aside>

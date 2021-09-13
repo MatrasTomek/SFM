@@ -12,86 +12,39 @@
     .inside {
         width: 90%;
         margin: 0 auto;
-        padding: 30px 10px;
-        background-color: $text-first;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        border: 1px solid $text-first;
         border-radius: $radius;
 
-        .navigation {
+        .aside {
             width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-
-
-            .update {
-                flex-basis: 100%;
-                display: flex;
-                justify-content: space-around;
-
-                button {
-                    @include smallButton;
-                    @include lightButton;
-                    width: 25%;
-
-                    &:hover {
-                        background-color: $background;
-                        color: $text-second;
-                    }
-                }
-            }
-
-            .vievs {
-                flex-basis: 100%;
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                margin: 20px auto;
-
-                button {
-                    @include smallButton;
-                    @include lightButton;
-                    width: 25%;
-
-                    &:hover {
-                        background-color: $background;
-                        color: $text-second;
-                    }
-                }
-
-                p {
-                    flex-basis: 20%;
-                    text-align: center;
-                }
-            }
-        }
-
-        .calendarDays {
-            display: grid;
-            grid-template-columns: auto auto auto auto auto auto auto;
-            gap: 4px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 10px;
+            height: 50px;
             background-color: $box;
-            border-radius: $radius;
-
-            .day {
-                height: 40px;
-                border: 1px solid $text-first;
-                border-radius: $radius;
-                cursor: pointer;
-                transition: 0.4s;
-
-                .itemEvent {
-                    color: red;
-                }
-
-                &:hover {
-                    background-color: $background;
-                }
-            }
         }
 
+        section {
+            width: 100%;
+            min-height: 50vh;
+        }
+    }
+
+    @media screen and (orientation: landscape) {
+        .inside {
+            flex-direction: row;
+            justify-content: space-between;
+
+
+            .aside {
+                flex-basis: 18%;
+                height: auto;
+            }
+
+            section {
+                flex-basis: 80%;
+
+            }
+        }
     }
 }
