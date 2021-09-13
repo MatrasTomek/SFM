@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { AddEvent, EventItem, Button } from "../../../components";
 import { DAYS, MONTHS } from "../../../helpers/dates";
-import FoundItem from "../../FoundItem";
 import styles from "./myDay.module.scss";
 
 const MyDay = () => {

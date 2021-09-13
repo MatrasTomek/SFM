@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteEvent } from "../../../data/actions";
+import { editEvent, deleteEvent } from "../../../data/actions";
 import { AddEvent } from "../../../components";
 import styles from "./eventItem.module.scss";
 
@@ -24,6 +24,20 @@ const EventItem = ({ eventData }) => {
   const handleShowEventDetails = () => {
     setIsVievOpen(!isVievOpen);
   };
+  const handleSetEventIsDone = () => {
+    const eventObj = {
+      isImportant,
+      isDone: !isDone ? new Date().toLocaleDateString() : null,
+      _id,
+      eventStart,
+      eventEnd,
+      eventContent,
+      eventName,
+      hrsStart,
+      hrsEnd,
+    };
+    dispatch(editEvent(eventObj));
+  };
   const handleEditEvent = () => {
     setIsModalOpen(true);
   };
@@ -40,7 +54,7 @@ const EventItem = ({ eventData }) => {
           {eventName}
         </div>
         <p>{!isImportant || !isImportant.length ? "" : "ważne"}</p>
-        <p>{!isDone || !isDone.length ? "" : "wykonane"}</p>
+        <p>{!isDone || !isDone.length ? "" : `wykonane: ${isDone[0]}`}</p>
       </div>
       {!isVievOpen ? (
         ""
@@ -51,7 +65,7 @@ const EventItem = ({ eventData }) => {
           </p>
           <p>{eventContent}</p>
           <div className={styles.functionButtons}>
-            <div>
+            <div onClick={handleSetEventIsDone}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 enableBackground="new 0 0 24 24"
