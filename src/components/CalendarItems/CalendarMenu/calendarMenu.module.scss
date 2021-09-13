@@ -26,6 +26,11 @@
             li:hover {
                 background-color: $text-first;
             }
+
+            .selected {
+                background-color: $text-first;
+            }
+
         }
     }
 

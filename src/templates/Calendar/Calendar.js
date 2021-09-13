@@ -16,7 +16,10 @@ const Calendar = () => {
     <div className={styles.wrapper}>
       <div className={styles.inside}>
         <aside className={styles.aside}>
-          <CalendarMenu setSelectedCard={setSelectedCard} />
+          <CalendarMenu
+            setSelectedCard={setSelectedCard}
+            selectedCard={selectedCard}
+          />
         </aside>
         <section className={styles.content}>
           {selectedCard === "myday" ? <MyDay /> : null}

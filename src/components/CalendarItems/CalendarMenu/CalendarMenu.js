@@ -1,6 +1,6 @@
 import styles from "./calendarMenu.module.scss";
 
-const CalendarMenu = ({ setSelectedCard }) => {
+const CalendarMenu = ({ setSelectedCard, selectedCard }) => {
   const handleSelectCard = (e) => {
     setSelectedCard(e.target.id);
   };
@@ -8,7 +8,11 @@ const CalendarMenu = ({ setSelectedCard }) => {
     <div className={styles.wrapper}>
       <nav>
         <ul>
-          <li id="myday" onClick={handleSelectCard}>
+          <li
+            className={selectedCard === "myday" ? styles.selected : null}
+            id="myday"
+            onClick={handleSelectCard}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               enableBackground="new 0 0 24 24"
@@ -22,7 +26,11 @@ const CalendarMenu = ({ setSelectedCard }) => {
             </svg>
             Mój dzień
           </li>
-          <li id="events" onClick={handleSelectCard}>
+          <li
+            className={selectedCard === "events" ? styles.selected : null}
+            id="events"
+            onClick={handleSelectCard}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24px"
@@ -35,7 +43,11 @@ const CalendarMenu = ({ setSelectedCard }) => {
             </svg>
             Zadania
           </li>
-          <li id="important" onClick={handleSelectCard}>
+          <li
+            className={selectedCard === "important" ? styles.selected : null}
+            id="important"
+            onClick={handleSelectCard}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24px"
@@ -49,7 +61,11 @@ const CalendarMenu = ({ setSelectedCard }) => {
             </svg>
             Ważne
           </li>
-          <li id="done" onClick={handleSelectCard}>
+          <li
+            className={selectedCard === "done" ? styles.selected : null}
+            id="done"
+            onClick={handleSelectCard}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               enableBackground="new 0 0 24 24"

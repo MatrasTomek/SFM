@@ -44,7 +44,7 @@ const AddEvent = ({ isModalOpen, setIsModalOpen, isEdit, eventData }) => {
         hrsEnd: !values.hrsEnd ? "" : values.hrsEnd,
         eventName: !values.eventName ? "" : values.eventName,
         isImportant: values.isImportant,
-        isDone: values.isDone,
+        isDone: null,
         eventContent: !values.eventContent ? "" : values.eventContent,
       };
       dispatch(addEvent(eventObj));
@@ -157,17 +157,21 @@ const AddEvent = ({ isModalOpen, setIsModalOpen, isEdit, eventData }) => {
                 />
                 <label htmlFor="isImportant">Ważne</label>
               </div>
-              <div>
-                <Field
-                  name="isDone"
-                  component="input"
-                  type="checkbox"
-                  id="isDone"
-                  value="isDone"
-                  initialValue={isEdit ? eventData.isDone : null}
-                />
-                <label htmlFor="isDone">Wykonane</label>
-              </div>
+              {!isEdit ? (
+                ""
+              ) : (
+                <div>
+                  <Field
+                    name="isDone"
+                    component="input"
+                    type="checkbox"
+                    id="isDone"
+                    value={new Date().toLocaleDateString()}
+                    initialValue={isEdit ? eventData.isDone : null}
+                  />
+                  <label htmlFor="isDone">Wykonane</label>
+                </div>
+              )}
 
               <Field
                 name="eventContent"
