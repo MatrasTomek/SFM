@@ -1,0 +1,48 @@
+@import "../../../StylesRoot/common.scss";
+
+.wrapper {
+    min-width: 200px;
+    border: 1px solid $text-first;
+    margin: 10px 20px;
+    padding: 5px;
+    border-radius: $radius;
+
+    .simpleViev {
+        display: flex;
+        justify-content: space-between;
+
+        .eventTitle {
+            min-width: 100px;
+            background-color: $box;
+            border-radius: $radius;
+            cursor: pointer;
+        }
+    }
+
+    .detailsViev {
+        .functionButtons {
+            display: flex;
+            justify-content: space-around;
+            width: 160px;
+
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                cursor: pointer;
+
+                svg {
+                    fill: $text-second;
+                    transition: 0.4s;
+
+                    &:hover {
+                        fill: $text-first;
+                    }
+                }
+
+            }
+        }
+    }
+
+}
