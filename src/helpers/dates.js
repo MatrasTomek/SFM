@@ -1,4 +1,4 @@
-export const MONTH = [
+export const MONTHS = [
   "styczeń",
   "luty",
   "marzec",
@@ -11,4 +11,14 @@ export const MONTH = [
   "październik",
   "listopad",
   "grudzień",
+];
+
+export const DAYS = [
+  "poniedziałek",
+  "wtorek",
+  "środa",
+  "czwartek",
+  "piątek",
+  "sobota",
+  "niedziela",
 ];

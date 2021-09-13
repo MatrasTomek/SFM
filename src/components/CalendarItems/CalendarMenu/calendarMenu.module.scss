@@ -1,0 +1,43 @@
+@import "../../../StylesRoot/common.scss";
+
+.wrapper {
+    nav {
+
+        ul {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            list-style: none;
+
+
+
+            li {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 5px;
+                margin: 20px auto;
+                border-radius: $radius;
+                cursor: pointer;
+                transition: 0.4s;
+
+            }
+
+            li:hover {
+                background-color: $text-first;
+            }
+        }
+    }
+
+    @media screen and (orientation:landscape) {
+        nav {
+            ul {
+                flex-direction: column;
+
+                li {
+                    width: 140px;
+                }
+            }
+        }
+    }
+}

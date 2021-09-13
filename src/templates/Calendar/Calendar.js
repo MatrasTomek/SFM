@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
-
 import {
   AllEvents,
   AsideMenu,
   CalendarMenu,
   DoneEvents,
+  Important,
   MyDay,
 } from "../../components";
 import styles from "./calendar.module.scss";
@@ -23,6 +22,7 @@ const Calendar = () => {
           {selectedCard === "myday" ? <MyDay /> : null}
           {selectedCard === "events" ? <AllEvents /> : null}
           {selectedCard === "done" ? <DoneEvents /> : null}
+          {selectedCard === "important" ? <Important /> : null}
         </section>
       </div>
 
