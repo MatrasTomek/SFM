@@ -15,9 +15,12 @@ export const eventReducer = (state = initialState, action) => {
     case ADD_EVENT:
       return [...state, action.payload];
     case EDIT_EVENT:
-      return (state = action.payload);
+      const index = state.findIndex((item) => item._id === action.payload._id);
+      state.splice(index, 1, action.payload);
+      return [...state];
     case DEL_EVENT:
-      return initialState;
+      return state.filter((item) => item._id !== action.payload);
+
     case CLEAR_EVENT:
       return initialState;
 

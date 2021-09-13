@@ -36,7 +36,7 @@ export const addEvent = (eventObj) => async (dispatch) => {
     dispatch(timeoutShowTask(`Zdarzenie dodane`));
     dispatch({
       type: ADD_EVENT,
-      payload: data,
+      payload: data.data,
     });
   } else {
     dispatch(removeSpinner());
@@ -48,18 +48,15 @@ export const addEvent = (eventObj) => async (dispatch) => {
     console.log(data.message);
   }
 };
-export const editEvent = (subcontractorData) => async (dispatch) => {
+export const editEvent = (eventObj) => async (dispatch) => {
   dispatch(addSpinner());
-  const { data, status } = await request.put(
-    "/subcontractor",
-    subcontractorData
-  );
+  const { data, status } = await request.put("/events", eventObj);
   if (status === 202) {
     dispatch(removeSpinner());
     dispatch(timeoutShowTask(`Zdarzenie zaktualizowane`));
     dispatch({
       type: EDIT_EVENT,
-      payload: data,
+      payload: data.data,
     });
   } else if (status === 404) {
     dispatch(removeSpinner());
@@ -77,14 +74,15 @@ export const editEvent = (subcontractorData) => async (dispatch) => {
   }
 };
 
-export const deleteEvent = (id) => async (dispatch) => {
+export const deleteEvent = (_id) => async (dispatch) => {
   dispatch(addSpinner());
-  const { data, status } = await request.delete(`events/${id}`);
+  const { data, status } = await request.delete(`events/${_id}`);
   if (status === 200) {
     dispatch(removeSpinner());
     dispatch(timeoutShowTask(`Zdarzenie usuniete`));
     dispatch({
       type: DEL_EVENT,
+      payload: _id,
     });
   } else if (status === 404) {
     dispatch(removeSpinner());
