@@ -24,6 +24,20 @@ const EventItem = ({ eventData }) => {
   const handleShowEventDetails = () => {
     setIsVievOpen(!isVievOpen);
   };
+  const handleSetEventIsImportant = () => {
+    const eventObj = {
+      isImportant: !isImportant || !isImportant.length ? ["isImportant"] : null,
+      isDone,
+      _id,
+      eventStart,
+      eventEnd,
+      eventContent,
+      eventName,
+      hrsStart,
+      hrsEnd,
+    };
+    dispatch(editEvent(eventObj));
+  };
   const handleSetEventIsDone = () => {
     const eventObj = {
       isImportant,
@@ -46,25 +60,96 @@ const EventItem = ({ eventData }) => {
   };
   return (
     <div className={styles.wrapper}>
-      <div className={styles.simpleViev}>
-        <p>
-          start: {eventStart} {hrsStart}
-        </p>
-        <div className={styles.eventTitle} onClick={handleShowEventDetails}>
-          {eventName}
+      <div className={styles.simpleViev} onClick={handleShowEventDetails}>
+        <div className={styles.eventData}>
+          <div className={styles.important}>
+            {!isImportant || !isImportant.length ? (
+              ""
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 0 24 24"
+                width="24px"
+                fill="#e00902"
+              >
+                <path d="M0 0h24v24H0z" fill="none" />
+                <circle cx="12" cy="19" r="2" />
+                <path d="M10 3h4v12h-4z" />
+              </svg>
+            )}
+          </div>
+          <div className={styles.start}>
+            <p> {eventStart}</p>
+            <p> {hrsStart}</p>
+          </div>
+
+          <div className={styles.done}>
+            {!isDone || !isDone.length ? (
+              ""
+            ) : (
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  enableBackground="new 0 0 24 24"
+                  height="24px"
+                  viewBox="0 0 24 24"
+                  width="24px"
+                  fill="#49b800"
+                >
+                  <g>
+                    <path d="M0,0h24v24H0V0z" fill="none" />
+                  </g>
+                  <g>
+                    <path d="M14,2H6C4.9,2,4.01,2.9,4.01,4L4,20c0,1.1,0.89,2,1.99,2H18c1.1,0,2-0.9,2-2V8L14,2z M10.94,18L7.4,14.46l1.41-1.41 l2.12,2.12l4.24-4.24l1.41,1.41L10.94,18z M13,9V3.5L18.5,9H13z" />
+                  </g>
+                </svg>
+                <p
+                  style={{
+                    color: "#49b800",
+                  }}
+                >
+                  {isDone[0]}
+                </p>
+              </div>
+            )}
+          </div>
         </div>
-        <p>{!isImportant || !isImportant.length ? "" : "ważne"}</p>
-        <p>{!isDone || !isDone.length ? "" : `wykonane: ${isDone[0]}`}</p>
+        <div className={styles.eventTitle}>{eventName}</div>
       </div>
       {!isVievOpen ? (
         ""
       ) : (
         <div className={styles.detailsViev}>
-          <p>
-            koniec: {eventEnd} {hrsEnd}
-          </p>
-          <p>{eventContent}</p>
+          <div className={styles.eventData}>
+            <div>
+              <p>start:</p>
+              <p>{eventStart}</p>
+              <p>{hrsStart}</p>
+            </div>
+            <div>
+              <p>koniec:</p>
+              <p>{eventEnd}</p>
+              <p>{hrsEnd}</p>
+            </div>
+            <div className={styles.eventContent}>
+              <p>{eventContent}</p>
+            </div>
+          </div>
           <div className={styles.functionButtons}>
+            <div onClick={handleSetEventIsImportant}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 0 24 24"
+                width="24px"
+                fill="none"
+              >
+                <path d="M0 0h24v24H0z" fill="none" />
+                <circle cx="12" cy="19" r="2" />
+                <path d="M10 3h4v12h-4z" />
+              </svg>
+            </div>
             <div onClick={handleSetEventIsDone}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

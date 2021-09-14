@@ -9,21 +9,98 @@
 
     .simpleViev {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        background-color: $box;
+        border-radius: $radius;
+        cursor: pointer;
+
+        .eventData {
+            flex-basis: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+
+            .important {
+                flex-basis: 5%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+
+            .start {
+                flex-basis: 48%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: $xs-fz;
+
+
+            }
+
+            .done {
+                flex-basis: 40%;
+                font-size: $xs-fz;
+
+
+                div {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
 
         .eventTitle {
-            min-width: 100px;
-            background-color: $box;
-            border-radius: $radius;
-            cursor: pointer;
+            flex-basis: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: $xs-fz;
         }
     }
 
     .detailsViev {
+        width: 100%;
+
+        .eventData {
+            font-size: $xs-fz;
+
+            div {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin: 10px auto;
+
+                p {
+                    font-size: $xs-fz;
+                    width: 60px;
+
+                }
+
+                p:nth-child(2) {
+                    width: 85px;
+                }
+            }
+
+            .eventContent {
+                flex-basis: 100%;
+                display: flex;
+
+                p {
+                    flex-basis: 100%;
+                }
+            }
+
+        }
+
         .functionButtons {
             display: flex;
             justify-content: space-around;
-            width: 160px;
+            width: 100%;
 
             div {
                 display: flex;
@@ -45,4 +122,73 @@
         }
     }
 
+    @media screen and (min-width:map-get($breakpoints, medium)) {
+        .detailsViev {
+            .eventData {
+                font-size: $s-fz;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                div {
+                    width: 200px;
+                }
+            }
+
+            .functionButtons {
+                display: flex;
+                justify-content: flex-end;
+                width: 100%;
+
+
+                div {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 60px;
+                    cursor: pointer;
+
+                    svg {
+                        fill: $text-second;
+                        transition: 0.4s;
+
+                        &:hover {
+                            fill: $text-first;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, large)) {
+        .simpleViev {
+            justify-content: space-between;
+
+            .eventData {
+                flex-basis: 45%;
+                padding: 7px 0;
+
+                p {
+                    font-size: $s-fz;
+                }
+            }
+
+            .eventTitle {
+                flex-basis: 53%;
+                font-size: $s-fz;
+            }
+        }
+
+        .detailsViev {
+            .eventData {
+                div {
+                    p {
+                        font-size: $s-fz;
+                    }
+                }
+            }
+        }
+    }
 }

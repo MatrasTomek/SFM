@@ -24,8 +24,8 @@ const Calendar = () => {
         <section className={styles.content}>
           {selectedCard === "myday" ? <MyDay /> : null}
           {selectedCard === "events" ? <AllEvents /> : null}
-          {selectedCard === "done" ? <DoneEvents /> : null}
           {selectedCard === "important" ? <Important /> : null}
+          {selectedCard === "done" ? <DoneEvents /> : null}
         </section>
       </div>
 
