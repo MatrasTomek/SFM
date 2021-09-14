@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  AllEvents,
-  AsideMenu,
-  CalendarMenu,
-  DoneEvents,
-  Important,
-  MyDay,
-} from "../../components";
+import { AsideMenu, CalendarMenu, SectionSelector } from "../../components";
 import styles from "./calendar.module.scss";
 
 const Calendar = () => {
@@ -22,10 +15,7 @@ const Calendar = () => {
           />
         </aside>
         <section className={styles.content}>
-          {selectedCard === "myday" ? <MyDay /> : null}
-          {selectedCard === "events" ? <AllEvents /> : null}
-          {selectedCard === "important" ? <Important /> : null}
-          {selectedCard === "done" ? <DoneEvents /> : null}
+          <SectionSelector selectedCard={selectedCard} />
         </section>
       </div>
 

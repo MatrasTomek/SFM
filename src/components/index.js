@@ -1,11 +1,8 @@
 export {
   AddEvent,
-  AllEvents,
   CalendarMenu,
-  DoneEvents,
   EventItem,
-  Important,
-  MyDay,
+  SectionSelector,
 } from "./CalendarItems";
 export { default as AsideMenu } from "./AsideMenu";
 export { Button, BackButton } from "./Buttons";
