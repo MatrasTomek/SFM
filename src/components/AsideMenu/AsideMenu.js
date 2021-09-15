@@ -17,10 +17,6 @@ const AsideMenu = () => {
     dispatch(clearSubcontarctor());
   };
 
-  const handleGetSubcontractors = () => {
-    dispatch(getAllSubcontractors());
-  };
-
   const handleGetEvents = () => {
     dispatch(getAllEvents());
   };
@@ -66,9 +62,7 @@ const AsideMenu = () => {
             <Link to="/find-subcontractor" onClick={handleClearState}>
               Znajdź przewoźnika
             </Link>
-            <Link to="/statistics" onClick={handleGetSubcontractors}>
-              Statystyki
-            </Link>
+            <Link to="/statistics">Statystyki</Link>
             <Link to="/calendar">Terminarz</Link>
           </ul>
         </nav>

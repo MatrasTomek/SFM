@@ -38,7 +38,6 @@ export const getOneSubcontractor = (dataToFind) => async (dispatch) => {
   );
   if (status === 200) {
     dispatch(removeSpinner());
-    console.log(data);
     dispatch({
       type: GET_SUBC,
       payload: data,

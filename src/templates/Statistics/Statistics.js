@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllSubcontractors } from "../../data/actions";
 import { Form, Field } from "react-final-form";
 import { AsideMenu, Button, FoundItem } from "../../components";
 import { COUNTRIES } from "../../helpers/countires";
@@ -8,10 +9,15 @@ import styles from "./statistics.module.scss";
 
 const Statistics = () => {
   const subcontractors = useSelector((store) => store.subcontractor.data);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllSubcontractors());
+  }, []);
 
   const [foundItems, setFoundItems] = useState("");
 
-  const serchingItemsFromSelectedParams = (values) => {
+  const serchingItemsFromSelectedParams = async (values) => {
     const foundByZip = [];
     const foundByCity = [];
     const foundByFleetSize = [];
@@ -111,7 +117,6 @@ const Statistics = () => {
   );
 
   const handleOnSubmit = (values) => {
-    console.log(values);
     setFoundItems("");
     serchingItemsFromSelectedParams(values);
   };
@@ -229,7 +234,11 @@ const Statistics = () => {
                 </label>
               </div>
               <div className={styles.buttons}>
-                <Button type="submit" name="pokaż" />
+                {!subcontractors || !subcontractors.length ? (
+                  ""
+                ) : (
+                  <Button type="submit" name="pokaż" />
+                )}
               </div>
             </form>
           )}

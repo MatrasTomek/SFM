@@ -5,9 +5,11 @@ const Spinner = () => {
   const spinner = useSelector((store) => store.spinner);
   const spinnerViev = spinner ? (
     <div className={styles.wrapper}>
-      <div className={styles.spinnerEclipse}>
-        <div className={styles.ldio}>
-          <div></div>
+      <div className={styles.inside}>
+        <div className={styles.spinnerEclipse}>
+          <div className={styles.ldio}>
+            <div></div>
+          </div>
         </div>
       </div>
     </div>
