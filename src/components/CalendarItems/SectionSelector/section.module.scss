@@ -1,1 +1,34 @@
 @import "../../../StylesRoot/common.scss";
+
+.wrapper {
+    .header {
+        .date {
+            p {
+                font-size: $xs-fz;
+            }
+        }
+
+        .tasksInfo {}
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+            @include lightButton;
+            @include smallButton;
+
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, large)) {
+        .header {
+            .date {
+                p {
+                    font-size: $m-fz;
+                }
+            }
+        }
+    }
+}

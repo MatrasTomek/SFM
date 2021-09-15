@@ -1,6 +1,217 @@
 @import "../../../StylesRoot/common.scss";
 
 .wrapper {
-    width: 200px;
+    width: 270px;
 
+    .form {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+
+        .element {
+            flex-basis: 90%;
+
+
+            div {
+                input {
+                    @include smallInput;
+                    width: 100%;
+                }
+            }
+        }
+
+        .doubleElements {
+            flex-basis: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+
+            label {
+                @include labelItem;
+                flex-basis: 100%;
+            }
+
+            div:nth-child(2) {
+                input {
+                    width: 150px;
+                }
+            }
+
+            div:nth-child(3) {
+                input {
+                    width: 90px;
+                }
+            }
+
+            div {
+                margin: 10px auto;
+
+                input {
+                    @include smallInput;
+                }
+            }
+        }
+
+        .selectedElements {
+            flex-basis: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 10px auto;
+
+            .warrning,
+            .done {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                margin-bottom: 20px;
+
+                label>input[type="checkbox"] {
+                    display: none;
+                }
+
+                label>input[type="checkbox"]+*::before {
+                    content: "";
+                    display: inline-block;
+                    vertical-align: bottom;
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 5px;
+                    border: 1px solid $text-first;
+                    border-radius: $radius;
+                }
+
+                label>input[type="checkbox"]:checked+*::before {
+                    content: "✓";
+                    color: white;
+                    text-align: center;
+                    background: $worning;
+                    border-color: $worning;
+                }
+
+                label>input[type="checkbox"]:checked+* {
+                    color: $text-first;
+                    font-weight: 700;
+                }
+
+            }
+
+            .done {
+                label>input[type="checkbox"]:checked+*::before {
+                    content: "✓";
+                    color: white;
+                    text-align: center;
+                    background: $isDone;
+                    border-color: $isDone;
+                }
+            }
+        }
+
+        .contentElement {
+            flex-basis: 100%;
+
+            div {
+
+                textarea {
+                    width: 100%;
+                    padding: 10px;
+                    margin: 10px auto;
+                    margin-bottom: 20px;
+                    border: 1px solid $text-first;
+                    border-radius: $radius;
+                    background-color: $box;
+                    color: $text-second;
+                }
+            }
+        }
+
+        .buttons {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            button {
+                @include smallButton;
+                @include lightButton;
+                width: 100px;
+            }
+        }
+    }
+
+    @media screen and (orientation: landscape) {
+        width: 500px;
+
+        .form {
+
+            .element {}
+
+            .doubleElements {
+                flex-basis: 50%;
+
+                div {
+                    margin: 0 auto;
+                }
+
+                div:nth-child(2) {
+                    input {
+                        width: 180px;
+                    }
+                }
+
+                div:nth-child(3) {
+                    input {
+                        width: 90px;
+                    }
+                }
+
+            }
+
+            .selectedElements {
+                margin: 0 auto;
+            }
+
+            .contentElement {
+                div {
+                    textarea {
+                        margin: 0 auto;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, medium)) {
+        .form {
+
+            .element {}
+
+            .doubleElements {
+                flex-basis: 70%;
+
+                div {
+                    margin: 10px auto;
+
+                    input {
+                        width: 220px;
+                    }
+                }
+            }
+
+            .selectedElements {
+                margin: 10px auto;
+            }
+
+            .contentElement {
+                div {
+                    textarea {
+                        margin: 10px auto;
+                    }
+                }
+            }
+        }
+    }
 }

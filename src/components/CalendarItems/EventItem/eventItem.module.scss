@@ -1,11 +1,14 @@
 @import "../../../StylesRoot/common.scss";
 
-.wrapper {
+.wrapper,
+.importantWrapper {
     min-width: 200px;
     border: 1px solid $text-first;
     margin: 10px 20px;
     padding: 5px;
     border-radius: $radius;
+
+
 
     .simpleViev {
         display: flex;
@@ -191,4 +194,9 @@
             }
         }
     }
+}
+
+.importantWrapper {
+    border: none;
+    border: 2px solid $worning;
 }

@@ -85,25 +85,27 @@ const AddEvent = ({ isModalOpen, setIsModalOpen, isEdit, eventData }) => {
                 return promise;
               }}
             >
-              <Field
-                name="eventName"
-                initialValue={isEdit ? eventData.eventName : null}
-              >
-                {({ input, meta }) => (
-                  <div>
-                    <input type="text" placeholder="Tytuł" {...input} />
-                    {meta.error && meta.touched && <span>{meta.error}</span>}
-                  </div>
-                )}
-              </Field>
-              <div>
+              <div className={styles.element}>
+                <Field
+                  name="eventName"
+                  initialValue={isEdit ? eventData.eventName : null}
+                >
+                  {({ input, meta }) => (
+                    <div>
+                      <input type="text" placeholder="Tytuł" {...input} />
+                      {meta.error && meta.touched && <span>{meta.error}</span>}
+                    </div>
+                  )}
+                </Field>
+              </div>
+              <div className={styles.doubleElements}>
+                <label htmlFor="eventStart">Start</label>
                 <Field
                   name="eventStart"
                   initialValue={isEdit ? String(convertedEventStart) : null}
                 >
                   {({ input, meta }) => (
                     <div>
-                      <label htmlFor="eventStart">Start</label>
                       <input type="date" {...input} id="eventStart" />
                       {meta.error && meta.touched && <span>{meta.error}</span>}
                     </div>
@@ -121,14 +123,14 @@ const AddEvent = ({ isModalOpen, setIsModalOpen, isEdit, eventData }) => {
                   )}
                 </Field>
               </div>
-              <div>
+              <div className={styles.doubleElements}>
+                <label htmlFor="eventEnd">Koniec</label>
                 <Field
                   name="eventEnd"
                   initialValue={isEdit ? String(convertedEventEnd) : null}
                 >
                   {({ input, meta }) => (
                     <div>
-                      <label htmlFor="eventEnd">Koniec</label>
                       <input type="date" id="eventEnd" {...input} />
                       {meta.error && meta.touched && <span>{meta.error}</span>}
                     </div>
@@ -146,44 +148,52 @@ const AddEvent = ({ isModalOpen, setIsModalOpen, isEdit, eventData }) => {
                   )}
                 </Field>
               </div>
-              <div>
-                <Field
-                  name="isImportant"
-                  component="input"
-                  type="checkbox"
-                  id="isImportant"
-                  value="isImportant"
-                  initialValue={isEdit ? eventData.isImportant : null}
-                />
-                <label htmlFor="isImportant">Ważne</label>
-              </div>
-              {!isEdit ? (
-                ""
-              ) : (
-                <div>
-                  <Field
-                    name="isDone"
-                    component="input"
-                    type="checkbox"
-                    id="isDone"
-                    value={new Date().toLocaleDateString()}
-                    initialValue={isEdit ? eventData.isDone : null}
-                  />
-                  <label htmlFor="isDone">Wykonane</label>
+              <div className={styles.selectedElements}>
+                <div className={styles.warrning}>
+                  <label>
+                    <Field
+                      name="isImportant"
+                      component="input"
+                      type="checkbox"
+                      id="isImportant"
+                      value="isImportant"
+                      initialValue={isEdit ? eventData.isImportant : null}
+                    />
+                    <span>Ważne</span>
+                  </label>
                 </div>
-              )}
 
-              <Field
-                name="eventContent"
-                initialValue={isEdit ? eventData.eventContent : null}
-              >
-                {({ input, meta }) => (
-                  <div>
-                    <textarea type="text" rows="3" cols="25" {...input} />
-                    {meta.error && meta.touched && <span>{meta.error}</span>}
+                {!isEdit ? (
+                  ""
+                ) : (
+                  <div className={styles.done}>
+                    <label>
+                      <Field
+                        name="isDone"
+                        component="input"
+                        type="checkbox"
+                        id="isDone"
+                        value={new Date().toLocaleDateString()}
+                        initialValue={isEdit ? eventData.isDone : null}
+                      />
+                      <span>Zakończone</span>
+                    </label>
                   </div>
                 )}
-              </Field>
+              </div>
+              <div className={styles.contentElement}>
+                <Field
+                  name="eventContent"
+                  initialValue={isEdit ? eventData.eventContent : null}
+                >
+                  {({ input, meta }) => (
+                    <div>
+                      <textarea type="text" rows="3" cols="25" {...input} />
+                      {meta.error && meta.touched && <span>{meta.error}</span>}
+                    </div>
+                  )}
+                </Field>
+              </div>
 
               <div className={styles.buttons}>
                 <Button

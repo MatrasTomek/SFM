@@ -59,7 +59,7 @@ const EventItem = ({ eventData }) => {
     dispatch(deleteEvent(_id));
   };
   return (
-    <div className={styles.wrapper}>
+    <div className={!isImportant ? styles.wrapper : styles.importantWrapper}>
       <div className={styles.simpleViev} onClick={handleShowEventDetails}>
         <div className={styles.eventData}>
           <div className={styles.important}>
