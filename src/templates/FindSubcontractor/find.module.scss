@@ -5,7 +5,8 @@
     min-height: 100vh;
     margin-top: $header;
     padding: 20px;
-    background-color: $background;
+    background-image: url('../../assets/img/icon-347230_640.png');
+
 
     .buttons {
         width: 90%;
@@ -63,6 +64,7 @@
             padding: 5px;
             border: 1px solid $text-first;
             border-radius: $radius;
+            background-color: $box;
             cursor: pointer;
 
 

@@ -4,7 +4,7 @@ import styles from "./managementPanel.module.scss";
 
 const ManagementPanel = ({ eventData }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  console.log(eventData);
+
   const handleOpenQestionForm = () => {};
   const handleOpenCalendar = () => {
     setIsModalOpen(true);

@@ -57,12 +57,12 @@ const AsideMenu = () => {
           <ul>
             <Link to="/">Start</Link>
             <Link to="/add-subcontractor" onClick={handleClearState}>
-              Dodaj przewoźnika
+              Dodaj klienta
             </Link>
             <Link to="/find-subcontractor" onClick={handleClearState}>
-              Znajdź przewoźnika
+              Znajdź klienta
             </Link>
-            <Link to="/statistics">Statystyki</Link>
+            <Link to="/statistics">Dopasowania</Link>
             <Link to="/calendar">Terminarz</Link>
           </ul>
         </nav>

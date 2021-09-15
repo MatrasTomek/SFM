@@ -68,6 +68,9 @@
 
     .detailsViev {
         width: 100%;
+        background-color: lighten($box, 15%);
+        border-radius: $radius;
+        padding: 0 5px;
 
         .eventData {
             font-size: $xs-fz;
