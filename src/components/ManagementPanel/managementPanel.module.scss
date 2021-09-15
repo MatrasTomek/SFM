@@ -1,0 +1,17 @@
+@import "../../StylesRoot/common.scss";
+
+.panel {
+    width: 90%;
+    margin: 0 auto;
+
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+
+        button {
+            @include smallButton;
+            @include darkButton;
+        }
+    }
+}

@@ -42,7 +42,8 @@ const AddEvent = ({ isModalOpen, setIsModalOpen, isEdit, eventData }) => {
         hrsStart: !values.hrsStart ? "" : values.hrsStart,
         eventEnd: endEventChange,
         hrsEnd: !values.hrsEnd ? "" : values.hrsEnd,
-        eventName: !values.eventName ? "" : values.eventName,
+        eventName:
+          !values.eventName || !eventData.eventName ? "" : values.eventName,
         isImportant: values.isImportant,
         isDone: null,
         eventContent: !values.eventContent ? "" : values.eventContent,
@@ -88,7 +89,7 @@ const AddEvent = ({ isModalOpen, setIsModalOpen, isEdit, eventData }) => {
               <div className={styles.element}>
                 <Field
                   name="eventName"
-                  initialValue={isEdit ? eventData.eventName : null}
+                  initialValue={eventData ? eventData.eventName : null}
                 >
                   {({ input, meta }) => (
                     <div>

@@ -17,7 +17,7 @@ const Statistics = () => {
 
   const [foundItems, setFoundItems] = useState("");
 
-  const serchingItemsFromSelectedParams = async (values) => {
+  const serchingItemsFromSelectedParams = (values) => {
     const foundByZip = [];
     const foundByCity = [];
     const foundByFleetSize = [];

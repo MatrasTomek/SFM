@@ -7,7 +7,11 @@ import {
   editSubcontractor,
 } from "../../../data/actions";
 import { COUNTRIES } from "../../../helpers/countires";
-import { Button, DeleteConfirmation } from "../../../components";
+import {
+  Button,
+  DeleteConfirmation,
+  ManagementPanel,
+} from "../../../components";
 import styles from "./info.module.scss";
 
 // const required = (value) => (value ? undefined : "Pole wymagane");
@@ -40,6 +44,10 @@ const Info = ({ found }) => {
   const [isSave, setIsSave] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [deleteItem, setDeleteItem] = useState(false);
+
+  const eventDataForManagementPannel = {
+    eventName: `Spotkanie z ${carrierName}`,
+  };
 
   useEffect(() => {
     setIsSave(!subcontractor ? false : true);
@@ -468,6 +476,7 @@ const Info = ({ found }) => {
         </div>
       )}
       {delConfirmationViev}
+      <ManagementPanel eventData={eventDataForManagementPannel} />
     </div>
   );
 };
