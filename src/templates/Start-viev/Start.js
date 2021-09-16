@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllEvents } from "../../data/actions";
+import {
+  currencyValueEUR,
+  currencyValueUSD,
+} from "../../helpers/currencyValue";
 
 import styles from "./start.module.scss";
 
@@ -9,11 +13,18 @@ const Start = () => {
   const events = useSelector((store) => store.events);
 
   const dispatch = useDispatch();
+
   const [time, setTime] = useState({});
 
   const [loadedEvents, setLoadedEvents] = useState([]);
 
-  useEffect(() => {});
+  const [currEUR, setCurrEUR] = useState(false);
+
+  const takeCurrencyRates = async () => {
+    const currEUR = currencyValueEUR();
+    await setCurrEUR(currEUR);
+  };
+  console.log(currEUR);
 
   const now = new Date();
   const presentDay = now.toLocaleDateString();
@@ -25,16 +36,17 @@ const Start = () => {
   useEffect(() => {
     dispatch(getAllEvents());
     showTime();
+    takeCurrencyRates();
   }, []);
 
   useEffect(() => {
     setLoadedEvents(events);
   }, [events]);
 
-  setInterval(() => {
-    showTime();
-  }, 60000);
-  clearInterval();
+  // setInterval(() => {
+  //   showTime();
+  // }, 60000);
+  // clearInterval();
 
   console.log(!loadedEvents ? "" : loadedEvents.event);
   return (
@@ -46,7 +58,9 @@ const Start = () => {
             {time.hrs}:{time.min}
           </p>
         </div>
-        <div className={styles.data}></div>
+        <div className={styles.data}>
+          <p>{!currEUR ? "" : currEUR[0].mid}</p>
+        </div>
         <div className={styles.event}></div>
       </header>
       <div className={styles.boxes}>
