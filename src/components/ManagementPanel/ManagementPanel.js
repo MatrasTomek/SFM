@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AddEvent, Button } from "../../components";
 import styles from "./managementPanel.module.scss";
 
-const ManagementPanel = ({ eventData }) => {
+const ManagementPanel = ({ eventNameFromClientInfo }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenQestionForm = () => {};
@@ -28,7 +28,7 @@ const ManagementPanel = ({ eventData }) => {
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
         isEdit={false}
-        eventData={eventData}
+        eventNameFromClientInfo={eventNameFromClientInfo}
       />
     </div>
   );

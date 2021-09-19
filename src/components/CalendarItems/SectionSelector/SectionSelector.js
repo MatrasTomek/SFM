@@ -6,6 +6,7 @@ import styles from "./section.module.scss";
 
 const SectionSelector = ({ selectedCard }) => {
   const events = useSelector((store) => store.event);
+
   const presentDayName = new Date().getDay();
   const presentDay = new Date().getDate();
   const presentMonth = new Date().getMonth();
@@ -18,6 +19,11 @@ const SectionSelector = ({ selectedCard }) => {
   const handleOpenAddEventModal = () => {
     setIsModalOpen(true);
   };
+
+  const eventSort = events.sort((a, b) => {
+    return a.eventStart.localeCompare(b.eventStart);
+  });
+  eventSort.reverse();
 
   const tasksVievForPresentDay =
     selectedCard === "myday"

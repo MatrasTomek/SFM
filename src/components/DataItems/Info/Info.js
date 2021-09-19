@@ -45,9 +45,7 @@ const Info = ({ found }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [deleteItem, setDeleteItem] = useState(false);
 
-  const eventDataForManagementPannel = {
-    eventName: `Spotkanie z ${carrierName}`,
-  };
+  const eventNameFromClientInfo = `Spotkanie z ${carrierName}`;
 
   useEffect(() => {
     setIsSave(!subcontractor ? false : true);
@@ -476,7 +474,7 @@ const Info = ({ found }) => {
         </div>
       )}
       {delConfirmationViev}
-      <ManagementPanel eventData={eventDataForManagementPannel} />
+      <ManagementPanel eventNameFromClientInfo={eventNameFromClientInfo} />
     </div>
   );
 };

@@ -4,7 +4,13 @@ import { Button, Modal } from "../../../components";
 import { addEvent, editEvent } from "../../../data/actions";
 import styles from "./addEvent.module.scss";
 
-const AddEvent = ({ isModalOpen, setIsModalOpen, isEdit, eventData }) => {
+const AddEvent = ({
+  isModalOpen,
+  setIsModalOpen,
+  isEdit,
+  eventData,
+  eventNameFromClientInfo = "",
+}) => {
   const convertingEventStart = !isEdit
     ? null
     : String(eventData.eventStart).split(".");
@@ -42,8 +48,7 @@ const AddEvent = ({ isModalOpen, setIsModalOpen, isEdit, eventData }) => {
         hrsStart: !values.hrsStart ? "" : values.hrsStart,
         eventEnd: endEventChange,
         hrsEnd: !values.hrsEnd ? "" : values.hrsEnd,
-        eventName:
-          !values.eventName || !eventData.eventName ? "" : values.eventName,
+        eventName: !values.eventName ? "" : values.eventName,
         isImportant: values.isImportant,
         isDone: null,
         eventContent: !values.eventContent ? "" : values.eventContent,
@@ -89,7 +94,9 @@ const AddEvent = ({ isModalOpen, setIsModalOpen, isEdit, eventData }) => {
               <div className={styles.element}>
                 <Field
                   name="eventName"
-                  initialValue={eventData ? eventData.eventName : null}
+                  initialValue={
+                    eventData ? eventData.eventName : eventNameFromClientInfo
+                  }
                 >
                   {({ input, meta }) => (
                     <div>
