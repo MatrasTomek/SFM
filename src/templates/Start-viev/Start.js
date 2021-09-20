@@ -1,67 +1,80 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllEvents } from "../../data/actions";
-import {
-  currencyValueEUR,
-  currencyValueUSD,
-} from "../../helpers/currencyValue";
+import { getAllEvents, getEurRates, getUsdRates } from "../../data/actions";
 
 import styles from "./start.module.scss";
 
 const Start = () => {
-  const events = useSelector((store) => store.events);
+  const events = useSelector((store) => store.event);
+  const currency = useSelector((store) => store.currency);
+
+  const euroRate =
+    currency.length < 2
+      ? ""
+      : currency[0].mid > currency[1].mid
+      ? currency[0].mid
+      : currency[1].mid;
+
+  const usdRate =
+    currency.length < 2
+      ? ""
+      : currency[0].mid < currency[1].mid
+      ? currency[0].mid
+      : currency[1].mid;
 
   const dispatch = useDispatch();
-
-  const [time, setTime] = useState({});
-
-  const [loadedEvents, setLoadedEvents] = useState([]);
-
-  const [currEUR, setCurrEUR] = useState(false);
-
-  const takeCurrencyRates = async () => {
-    const currEUR = currencyValueEUR();
-    await setCurrEUR(currEUR);
-  };
-  console.log(currEUR);
 
   const now = new Date();
   const presentDay = now.toLocaleDateString();
 
-  const showTime = () => {
-    const now = new Date();
-    setTime({ hrs: now.getHours(), min: now.getMinutes() });
-  };
+  const [time, setTime] = useState("");
+
   useEffect(() => {
-    dispatch(getAllEvents());
-    showTime();
-    takeCurrencyRates();
+    const clock = setInterval(() => {
+      const now = new Date();
+      const time = now.toLocaleTimeString();
+      setTime(time);
+    });
+    return () => clearInterval(clock);
   }, []);
 
   useEffect(() => {
-    setLoadedEvents(events);
-  }, [events]);
+    dispatch(getAllEvents());
+    dispatch(getEurRates());
+    dispatch(getUsdRates());
+  }, []);
 
-  // setInterval(() => {
-  //   showTime();
-  // }, 60000);
-  // clearInterval();
+  const closetsEventSelector = events.map((item) =>
+    item.eventStart === presentDay && item.isImportant && !item.isDone ? (
+      Number(item.hrsStart[0] + item.hrsStart[1]) <=
+      Number(time[0] + time[1]) + 4 ? (
+        <div key={item._id}>
+          <p>{item.eventName}</p>
+          <p>{item.hrsStart}</p>
+        </div>
+      ) : (
+        "brak zdarzeń na następne 4 godziny"
+      )
+    ) : (
+      false
+    )
+  );
 
-  console.log(!loadedEvents ? "" : loadedEvents.event);
   return (
     <div className={styles.wrapper}>
       <header className={styles.header}>
         <div className={styles.day}>
           <p>{presentDay}</p>
-          <p>
-            {time.hrs}:{time.min}
-          </p>
+          <p>{time}</p>
         </div>
         <div className={styles.data}>
-          <p>{!currEUR ? "" : currEUR[0].mid}</p>
+          <p>Kurs Euro: {euroRate}pln</p>
+          <p>Kurs Dolara: {usdRate}pln</p>
         </div>
-        <div className={styles.event}></div>
+        <div className={styles.event}>
+          Najbliższe zdarzenia:{closetsEventSelector}
+        </div>
       </header>
       <div className={styles.boxes}>
         <Link to="/calendar">
