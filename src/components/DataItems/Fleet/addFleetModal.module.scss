@@ -1,0 +1,201 @@
+@import "../../../StylesRoot/common.scss";
+
+.wrapper {
+    width: 270px;
+
+    .form {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        .doubleElements {
+
+            flex-basis: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+
+            label {
+                @include labelItem;
+                flex-basis: 35%;
+
+            }
+
+            div {
+
+                flex-basis: 50%;
+                margin: 10px auto;
+
+                select {
+                    @include selectItem;
+                }
+
+                input {
+                    @include smallInput;
+                    width: 80px;
+                }
+            }
+        }
+
+        .selectedElements {
+            flex-basis: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 10px auto;
+
+            .adr,
+            .frigo {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                margin-bottom: 20px;
+
+                label>input[type="checkbox"] {
+                    display: none;
+                }
+
+                label>input[type="checkbox"]+*::before {
+                    content: "";
+                    display: inline-block;
+                    vertical-align: bottom;
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 5px;
+                    border: 1px solid $text-first;
+                    border-radius: $radius;
+                }
+
+                label>input[type="checkbox"]:checked+*::before {
+                    content: "✓";
+                    color: $text-first;
+                    text-align: center;
+
+                }
+
+                label>input[type="checkbox"]:checked+* {
+                    color: $text-first;
+                    font-weight: 700;
+                }
+
+            }
+
+            .frigo {
+                label>input[type="checkbox"]:checked+*::before {
+                    content: "✓";
+                    color: $text-first;
+                    text-align: center;
+                }
+            }
+        }
+
+        .contentElement {
+            flex-basis: 100%;
+
+            div {
+
+                textarea {
+                    width: 100%;
+                    padding: 10px;
+                    margin: 10px auto;
+                    margin-bottom: 20px;
+                    border: 1px solid $text-first;
+                    border-radius: $radius;
+                    background-color: $box;
+                    color: $text-second;
+                }
+            }
+        }
+
+        .buttons {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            button {
+                @include smallButton;
+                @include lightButton;
+                width: 100px;
+            }
+        }
+    }
+
+    @media screen and (orientation: landscape) {
+        width: 500px;
+
+        .form {
+
+            .doubleElements {
+                flex-basis: 45%;
+
+                label {
+                    @include labelItem;
+                    flex-basis: 35%;
+
+                }
+
+                div {
+
+                    margin: 5px auto;
+                }
+
+            }
+
+            .selectedElements {
+                margin: 0 auto;
+            }
+
+            .contentElement {
+                div {
+                    textarea {
+                        margin: 0 auto;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, medium)) {
+        width: 600px;
+
+        .form {
+            justify-content: space-between;
+
+            .doubleElements {
+                flex-basis: 45%;
+
+                label {
+                    @include labelItem;
+                    flex-basis: 40%;
+
+                }
+
+                div {
+
+
+                    input {
+                        width: 100px
+                    }
+
+                    margin: 10px auto;
+                }
+
+            }
+
+            .selectedElements {
+                margin: 10px auto;
+            }
+
+            .contentElement {
+                div {
+                    textarea {
+                        margin: 10px auto;
+                    }
+                }
+            }
+        }
+    }
+}

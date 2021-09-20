@@ -1,0 +1,80 @@
+@import "../../../StylesRoot/common.scss";
+
+.fleetItem {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid $text-first;
+
+    div {
+        display: flex;
+        justify-content: center;
+
+        p:nth-child(1) {
+            margin-right: 15px;
+        }
+
+        p {
+            color: $text-first;
+
+            span {
+                color: $text-second;
+
+            }
+        }
+    }
+
+    p {
+        margin-right: 15px;
+        color: $text-first;
+
+        span {
+            color: $text-second;
+        }
+    }
+
+    .itemButtons {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 20px;
+
+        button {
+            @include smallButton;
+            @include lightButton;
+            width: 40%
+        }
+    }
+
+    @media screen and (orientation:landscape) {
+        .itemButtons {
+
+            button {
+
+                width: 20%
+            }
+        }
+    }
+
+    @media screen and (min-width: map-get($breakpoints, medium)) {
+        .itemButtons {
+
+            button {
+
+                width: 10%
+            }
+        }
+    }
+
+    @media screen and (min-width: map-get($breakpoints, medium)) {
+        .itemButtons {
+
+            button {
+
+                width: 10%
+            }
+        }
+
+
+    }
+
+}
