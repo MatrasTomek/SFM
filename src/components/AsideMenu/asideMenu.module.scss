@@ -68,6 +68,7 @@
     }
 
     @media screen and (orientation:landscape) {
+        bottom: 10%;
         height: 240px;
 
         .asideMenu {
@@ -82,14 +83,30 @@
     }
 
     @media screen and (min-width: map-get($breakpoints, medium)) {
-        height: 350px;
+        height: 250px;
+        bottom: 10%;
+
+        .asideMenu {
+            nav {
+                ul {
+                    a {
+                        margin: 10px 0;
+                        font-size: $s-fz;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: map-get($breakpoints, large)) {
+        height: 370px;
 
         .asideMenu {
             nav {
                 ul {
                     a {
                         margin: 20px 0;
-                        font-size: $s-fz;
+                        font-size: $l-fz;
                     }
                 }
             }

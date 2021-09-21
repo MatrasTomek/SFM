@@ -54,7 +54,9 @@ const Start = () => {
           <p>{item.hrsStart}</p>
         </div>
       ) : (
-        "brak zdarzeń na następne 4 godziny"
+        <div key={Math.random() * 0.012}>
+          <p>Brak zdarzeń na następne 4 godziny</p>
+        </div>
       )
     ) : (
       false
@@ -73,7 +75,8 @@ const Start = () => {
           <p>Kurs Dolara: {usdRate}pln</p>
         </div>
         <div className={styles.event}>
-          Najbliższe zdarzenia:{closetsEventSelector}
+          <p>Najbliższe zdarzenia:</p>
+          {closetsEventSelector}
         </div>
       </header>
       <div className={styles.boxes}>

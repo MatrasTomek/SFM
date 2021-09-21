@@ -147,8 +147,6 @@
 
         .form {
 
-            .element {}
-
             .doubleElements {
                 flex-basis: 50%;
 
@@ -187,16 +185,19 @@
     @media screen and (min-width:map-get($breakpoints, medium)) {
         .form {
 
-            .element {}
 
             .doubleElements {
-                flex-basis: 70%;
+                flex-basis: 80%;
 
                 div {
                     margin: 10px auto;
 
+
+                }
+
+                div:nth-child(3) {
                     input {
-                        width: 220px;
+                        width: 120px;
                     }
                 }
             }
