@@ -1,10 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import {
-  clearSubcontarctor,
-  getAllSubcontractors,
-  getAllEvents,
-} from "../../data/actions";
+import { clearSubcontarctor } from "../../data/actions";
 import { Link } from "react-router-dom";
 import styles from "./asideMenu.module.scss";
 
@@ -15,10 +11,6 @@ const AsideMenu = () => {
 
   const handleClearState = () => {
     dispatch(clearSubcontarctor());
-  };
-
-  const handleGetEvents = () => {
-    dispatch(getAllEvents());
   };
 
   const handleOpenCloseMenu = () => {

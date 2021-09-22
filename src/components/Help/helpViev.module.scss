@@ -1,0 +1,104 @@
+@import "../../StylesRoot/common.scss";
+
+.wrapper {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 440px;
+    background-color: $background;
+    border: 2px solid $text-first;
+    border-radius: $radius;
+    transition: 0.5s;
+
+    .tap {
+        position: absolute;
+        top: -30px;
+        left: 10px;
+        width: 70px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $background;
+        border: 2px solid $text-first;
+        border-bottom: none;
+        border-top-right-radius: 100px;
+        border-top-left-radius: 100px;
+        cursor: pointer;
+        z-index: 1;
+
+        svg {
+            fill: $text-first;
+            transition: 0.4s;
+        }
+
+        &:hover svg {
+            fill: white;
+        }
+    }
+
+    .inside {
+        width: 70%;
+        height: 95%;
+
+
+        form {
+            .formItem {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                color: $text-second;
+                margin-bottom: 20px;
+
+                label {
+                    text-align: center;
+                    margin-bottom: 20px
+                }
+
+                select {
+                    @include selectItem;
+                    background-color: $background;
+                }
+
+                input {
+                    @include smallInput;
+                    background-color: $background;
+
+                }
+
+                textarea {
+                    background-color: $background;
+                    border: 1px solid $text-first;
+                    border-radius: $radius;
+                    padding: 5px;
+                    color: $text-second;
+                }
+            }
+
+            .formButton {
+                display: flex;
+                justify-content: space-between;
+
+                button {
+                    @include lightButton;
+                    @include smallButton;
+                    width: 100px;
+                }
+            }
+
+            .confirmation {
+                color: $text-second;
+                text-align: center;
+            }
+        }
+    }
+
+}
+
+.open {
+    right: 2%;
+    bottom: 2%;
+}
