@@ -27,6 +27,8 @@
             input {
                 @include selectInput;
                 width: 80%;
+                border-left: 1px solid $text-first;
+                margin-bottom: 10px;
             }
 
 
@@ -57,8 +59,6 @@
         }
 
         .kindOfTransport {
-
-
             div {
                 width: 100%;
                 display: flex;
@@ -294,4 +294,18 @@
             }
         }
     }
+
+    @media screen and (min-width: map-get($breakpoints, large)) {
+        .form {
+
+            div:nth-child(5),
+            div:nth-child(6),
+            div:nth-child(7),
+            div:nth-child(8) {
+                flex-basis: 45%;
+            }
+        }
+    }
+
+    @media screen and (min-width: map-get($breakpoints, x-large)) {}
 }

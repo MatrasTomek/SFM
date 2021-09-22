@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   clearSubcontarctor,
@@ -12,6 +12,8 @@ import styles from "./start.module.scss";
 const Start = () => {
   const events = useSelector((store) => store.event);
   const currency = useSelector((store) => store.currency);
+
+  const history = useHistory();
 
   const euroRate =
     currency.length < 2
@@ -49,22 +51,25 @@ const Start = () => {
     dispatch(getUsdRates());
   }, []);
 
+  const handleGoToEvents = () => {
+    history.push("./calendar");
+  };
+
   const handleClearState = () => {
     dispatch(clearSubcontarctor());
   };
 
   const closetsEventSelector = events.map((item) =>
     item.eventStart === presentDay && item.isImportant && !item.isDone ? (
+      Number(item.hrsStart[0] + item.hrsStart[1]) > Number(time[0] + time[1]) &&
       Number(item.hrsStart[0] + item.hrsStart[1]) <=
-      Number(time[0] + time[1]) + 4 ? (
-        <div key={item._id}>
+        Number(time[0] + time[1]) + 4 ? (
+        <div key={item._id} onClick={handleGoToEvents}>
           <p>{item.eventName}</p>
           <p>{item.hrsStart}</p>
         </div>
       ) : (
-        <div key={Math.random() * 0.012}>
-          <p>Brak zdarzeń na następne 4 godziny</p>
-        </div>
+        ""
       )
     ) : (
       false

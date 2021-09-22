@@ -65,7 +65,7 @@ const HelpViev = ({ openHelpPannel, setOpenHelpPannel }) => {
           method="POST"
         >
           <div className={styles.formItem}>
-            <label htmlFor="problemItem">Wybierz rodzaj problemu</label>
+            <label htmlFor="problemItem">Rodzaj problemu:</label>
             <select required id="problemItem" name="problemItem">
               <option value="instruction">instrukcja obsługi</option>
               <option value="dataAccess">dostęp do danych</option>
@@ -75,17 +75,11 @@ const HelpViev = ({ openHelpPannel, setOpenHelpPannel }) => {
           </div>
           <div className={styles.formItem}>
             <input type="text" placeholder="Twoje Imię" name="Name" required />
-          </div>
-          <div className={styles.formItem}>
             <input type="email" placeholder="Email" name="eMail" required />
           </div>
+
           <div className={styles.formItem}>
-            <textarea
-              name="textarea"
-              rows="4"
-              cols="100"
-              placeholder="opisz problem"
-            />
+            <textarea name="textarea" placeholder="opisz problem" />
           </div>
 
           <div className={styles.formButton}>

@@ -11,6 +11,7 @@ export const COUNTRIES = [
   { id: "DK" },
   { id: "ES" },
   { id: "FI" },
+  { id: "FR" },
   { id: "GB" },
   { id: "GR" },
   { id: "HU" },

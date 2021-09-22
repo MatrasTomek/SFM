@@ -3,7 +3,7 @@
 .wrapper {
     position: relative;
     width: 100%;
-    height: 500vh;
+    min-height: calc(100vh - 100px);
     overflow-x: hidden;
 
     .menu {
@@ -61,5 +61,8 @@
 
     @media screen and (orientation: landscape) {}
 
-    @media screen and (min-width: map-get($breakpoints, medium)) {}
+    @media screen and (min-width: map-get($breakpoints, large)) {
+        width: 90%;
+        margin: 0 auto;
+    }
 }

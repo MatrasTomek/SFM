@@ -77,7 +77,7 @@ const FindSubcontractor = () => {
         <div className={styles.search}>
           <form onSubmit={handleSearchSubcontractor}>
             <select name="findCriteria" onChange={handleSetSearchCriteria}>
-              <option value="vatNo">wyszukaj po nr. Nip</option>
+              <option value="vatNo">wyszukaj po nr Nip</option>
               <option value="carrierName">wyszukaj po nazwie</option>
             </select>
             <input

@@ -39,7 +39,7 @@ const Info = ({ found }) => {
   } = !subcontractor ? "" : subcontractor;
 
   const [isEdit, setIsEdit] = useState(false);
-  // const [isFound, setIsFound] = useState(found);
+
   const [isSave, setIsSave] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [deleteItem, setDeleteItem] = useState(false);
@@ -142,15 +142,11 @@ const Info = ({ found }) => {
       <Button type="submit" name="zapisz" />
     ) : !isEdit ? (
       <>
-        <Button
-          type="button"
-          name="edytuj przewoźnika"
-          onClick={handleShowEditButtons}
-        />
+        <Button type="button" name="edytuj" onClick={handleShowEditButtons} />
         {!found ? (
           <Button
             type="button"
-            name="dodaj kolejnego przewoźnika"
+            name="dodaj kolejnego klienta"
             onClick={handleClearState}
           />
         ) : (
@@ -158,7 +154,7 @@ const Info = ({ found }) => {
         )}
         <Button
           type="button"
-          name="usuń przewoźnika"
+          name="usuń"
           onClick={handleOpendDleteConfirmation}
         />
       </>
@@ -473,7 +469,11 @@ const Info = ({ found }) => {
         </div>
       )}
       {delConfirmationViev}
-      <ManagementPanel eventNameFromClientInfo={eventNameFromClientInfo} />
+      {!isSave && !isEdit ? (
+        ""
+      ) : (
+        <ManagementPanel eventNameFromClientInfo={eventNameFromClientInfo} />
+      )}
     </div>
   );
 };

@@ -3,8 +3,7 @@
 .wrapper {
     width: 100%;
     min-height: 100vh;
-    margin-top: $header;
-    padding: 20px;
+    padding: 160px;
     background-image: url('../../assets/img/icon-347230_640.png');
     background-color: $box;
     background-blend-mode: soft-light;
@@ -18,7 +17,7 @@
         flex-direction: column;
 
         button {
-            margin: 20px auto;
+            margin: 30px auto;
             @include lightButton;
             @include smallButton;
         }
@@ -35,7 +34,7 @@
                 select {
                     @include selectItem;
                     margin-bottom: 20px;
-                    width: 60%;
+                    width: 180px;
 
                     option {
                         font-size: $xs-fz;
@@ -47,7 +46,7 @@
                 }
 
                 .icon {
-                    width: 30%;
+                    width: 60px;
                 }
             }
         }
@@ -89,7 +88,7 @@
 
                     select {
                         margin-bottom: 0;
-                        width: 35%;
+                        width: 180px;
                     }
 
                     input {
@@ -99,7 +98,7 @@
 
                     .icon {
                         margin: 0;
-                        width: 10%;
+
                     }
                 }
             }
@@ -136,7 +135,7 @@
             .search {
                 form {
                     select {
-                        width: 30%;
+                        width: 210px;
                     }
 
                     input {
@@ -146,7 +145,7 @@
 
                     .icon {
 
-                        width: 10%;
+                        width: 80px;
                     }
                 }
             }
