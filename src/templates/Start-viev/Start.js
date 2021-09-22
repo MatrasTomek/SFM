@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllEvents, getEurRates, getUsdRates } from "../../data/actions";
-
+import {
+  clearSubcontarctor,
+  getAllEvents,
+  getEurRates,
+  getUsdRates,
+} from "../../data/actions";
 import styles from "./start.module.scss";
 
 const Start = () => {
@@ -45,6 +49,10 @@ const Start = () => {
     dispatch(getUsdRates());
   }, []);
 
+  const handleClearState = () => {
+    dispatch(clearSubcontarctor());
+  };
+
   const closetsEventSelector = events.map((item) =>
     item.eventStart === presentDay && item.isImportant && !item.isDone ? (
       Number(item.hrsStart[0] + item.hrsStart[1]) <=
@@ -85,12 +93,12 @@ const Start = () => {
             <p>terminarz</p>
           </div>
         </Link>
-        <Link to="/add-subcontractor">
+        <Link to="/add-subcontractor" onClick={handleClearState}>
           <div className={styles.box}>
             <p>dodaj klienta</p>
           </div>
         </Link>
-        <Link to="/find-subcontractor">
+        <Link to="/find-subcontractor" onClick={handleClearState}>
           <div className={styles.box}>
             <p>wyszukaj klienta</p>
           </div>

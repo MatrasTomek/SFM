@@ -5,5 +5,9 @@
     min-height: 80vh;
     margin-top: $header;
     background-image: url('../../assets/img/group-2935518_640.png');
+    background-position: center;
+    background-size: contain;
+    background-color: $box;
+    background-blend-mode: soft-light;
 
 }

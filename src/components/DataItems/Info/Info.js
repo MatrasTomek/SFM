@@ -14,8 +14,7 @@ import {
 } from "../../../components";
 import styles from "./info.module.scss";
 
-// const required = (value) => (value ? undefined : "Pole wymagane");
-const required = () => {};
+const required = (value) => (value ? undefined : "Pole wymagane");
 
 const Info = ({ found }) => {
   const dispatch = useDispatch();

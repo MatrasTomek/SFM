@@ -60,15 +60,18 @@
 
     @media screen and (orientation:landscape) {
         .inside {
-            width: 95%;
-            height: 80%;
+            width: 85%;
+            height: 60%;
+            margin-top: 100px;
 
             .form {
                 flex-direction: row;
                 flex-wrap: wrap;
+                justify-content: center;
 
                 div {
                     flex-basis: 30%;
+                    margin-right: 20px;
                 }
             }
         }

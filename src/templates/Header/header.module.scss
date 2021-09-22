@@ -14,16 +14,61 @@
     border-bottom: 2px solid $text-first;
     z-index: 2;
 
+    .logo {
+        width: 160px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+
+        img {
+            width: 200px;
+            height: 160px;
+        }
+    }
+
     .info {
         display: flex;
         justify-content: space-around;
         align-items: center;
-        flex-basis: 40%;
+        flex-wrap: wrap;
+        width: 80px;
+        height: 80px;
+
+        a,
+        p {
+            text-decoration: none;
+            color: $text-first;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-weight: 700;
+            cursor: pointer;
+
+            &:hover {
+                color: $text-second;
+            }
+        }
 
     }
 
     button {
         @include lightButton;
         @include smallButton;
+        width: 80px;
+    }
+
+
+    @media screen and (min-width: map-get($breakpoints, medium)) {
+
+        .logo,
+        .info {
+            width: 200px
+        }
+
+        button {
+            width: 120px;
+        }
     }
 }

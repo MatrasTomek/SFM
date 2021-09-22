@@ -6,7 +6,8 @@
     margin-top: $header;
     color: $text-second;
     background-image: url('../../assets/img/puzzle-982124_640.jpg');
-
+    background-color: $box;
+    background-blend-mode: soft-light;
 
 
     .selectors {
