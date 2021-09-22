@@ -5,7 +5,7 @@ import { showFoundSubcontractor } from "../../data/actions";
 import { Button } from "../../components";
 import styles from "./foundItem.module.scss";
 
-const FoundItem = ({ item, index }) => {
+const FoundItem = ({ item }) => {
   const subcontractors = useSelector((store) => store.subcontractor.data);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -16,13 +16,15 @@ const FoundItem = ({ item, index }) => {
     setShowDetails(!showDetails);
   };
 
-  const handleGoToCard = (e) => {
-    const index = e.target.id;
-    history.push("/find-subcontractor");
+  const handleGoToCard = () => {
+    const id = item._id;
+    const itemToShow = subcontractors.find((item) => item._id === id);
+
     const selectedItem = {
-      data: subcontractors[index],
+      data: itemToShow,
     };
     dispatch(showFoundSubcontractor(selectedItem));
+    history.push("/find-subcontractor");
   };
 
   return (
@@ -47,7 +49,6 @@ const FoundItem = ({ item, index }) => {
             name="przejdź do karty"
             type="button"
             onClick={handleGoToCard}
-            id={index}
           />
         </div>
         <Button

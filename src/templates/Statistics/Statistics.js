@@ -111,9 +111,7 @@ const Statistics = () => {
   const foundItemsViev = !foundItems.length ? (
     <h3>Nie znaleziono danych do zapytania</h3>
   ) : (
-    foundItems.map((item, index) => (
-      <FoundItem key={item._id} item={item} index={index} />
-    ))
+    foundItems.map((item, index) => <FoundItem key={item._id} item={item} />)
   );
 
   const handleOnSubmit = (values) => {
