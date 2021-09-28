@@ -30,15 +30,19 @@ const CreateAccount = () => {
     } else if (password !== checkPassword) {
       dispatch(timeoutShowTask("Hasła różnią się od siebie"));
     } else {
-      const userData = {
-        login,
-        password,
-        access: "user",
-      };
-      dispatch(addUser(userData));
+      dispatch(
+        timeoutShowTask("W tej wersji apikacji nie można stworzyć użytkownika")
+      );
+      //not for production version wihout permission!!!
+      //   const userData = {
+      //     login,
+      //     password,
+      //     access: "user",
+      //   };
+      //   dispatch(addUser(userData));
+      // }
     }
   };
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.inside}>

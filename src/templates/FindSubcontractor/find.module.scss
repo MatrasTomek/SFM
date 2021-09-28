@@ -3,6 +3,7 @@
 .wrapper {
     width: 100%;
     min-height: 100vh;
+    height: auto;
     padding: 160px;
     background-image: url('../../assets/img/icon-347230_640.png');
     background-color: $box;
@@ -76,6 +77,8 @@
             }
         }
     }
+
+
 
     @media screen and (orientation: landscape) {
         .buttons {
