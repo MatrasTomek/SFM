@@ -8,6 +8,8 @@ import styles from "./fleetItem.module.scss";
 const FleetItem = ({ fleetData, index }) => {
   const { kindOfFleet, noOfTrucks, weight, pallets, adr, frigo, additional } =
     fleetData;
+
+  console.log(noOfTrucks);
   const subcontractor = useSelector((store) => store.subcontractor.data);
   const savedFleet = subcontractor.fleet;
 

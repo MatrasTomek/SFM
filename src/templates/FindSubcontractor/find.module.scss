@@ -4,7 +4,7 @@
     width: 100%;
     min-height: 100vh;
     height: auto;
-    padding: 160px;
+    padding-top: 160px;
     background-image: url('../../assets/img/icon-347230_640.png');
     background-color: $box;
     background-blend-mode: soft-light;
@@ -17,10 +17,12 @@
         display: flex;
         flex-direction: column;
 
+
         button {
             margin: 30px auto;
             @include lightButton;
             @include smallButton;
+
         }
 
         .search {
