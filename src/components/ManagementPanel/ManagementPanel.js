@@ -1,11 +1,14 @@
 import { useState } from "react";
-import { AddEvent, Button } from "../../components";
+import { AddEvent, Button, QuestionsForm } from "../../components";
 import styles from "./managementPanel.module.scss";
 
 const ManagementPanel = ({ eventNameFromClientInfo }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isQModalOpen, setIsQModalOpen] = useState(false);
 
-  const handleOpenQestionForm = () => {};
+  const handleOpenQestionForm = () => {
+    setIsQModalOpen(true);
+  };
   const handleOpenCalendar = () => {
     setIsModalOpen(true);
   };
@@ -24,6 +27,10 @@ const ManagementPanel = ({ eventNameFromClientInfo }) => {
           onClick={handleOpenCalendar}
         />
       </div>
+      <QuestionsForm
+        isModalOpen={isQModalOpen}
+        setIsModalOpen={setIsQModalOpen}
+      />
       <AddEvent
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}

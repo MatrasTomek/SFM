@@ -14,5 +14,6 @@ export { Fleet, Info } from "./DataItems";
 export { default as MainSwitch } from "./MainSwitch";
 export { default as ManagementPanel } from "./ManagementPanel";
 export { default as Modal } from "./Modal";
+export { default as QuestionsForm } from "./QuestionsForm";
 export { default as Spinner } from "./Spinner";
 export { default as TaskInformation } from "./TaskInformation";

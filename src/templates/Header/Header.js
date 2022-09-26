@@ -39,7 +39,9 @@ const Header = () => {
       </div>
       <div className={styles.info}>
         <p onClick={handleOpenHelpPannel}>Pomoc</p>
-        <Link to="/contact">Kontakt</Link>
+        <a href="https://www.tomaszmatras.pl/" target="blank">
+          Kontakt
+        </a>
       </div>
       {LogOutButtonViev}
       <HelpViev
